@@ -433,7 +433,7 @@ body.present.shownotes #notes{display:block}
       <div class="mapbox" style="flex:1.2 1 460px;min-width:0" id="b-vote">
         <div class="map" id="m-vote" role="img" aria-label="2024 presidential result by state"></div>
         <div class="fail">The map needs the Plotly library from a public CDN.</div>
-        <div class="mapcap"><span class="legend"><span><i style="background:#2E4A22"></i>Harris 2024</span><span><i style="background:#A3261E"></i>Trump 2024</span></span><span>STATEWIDE WINNER · MAINE AND NEBRASKA SPLIT ONE ELECTORAL VOTE EACH</span></div>
+        <div class="mapcap"><span class="legend"><span><i style="background:#2C5A8C"></i>Harris 2024</span><span><i style="background:#A3261E"></i>Trump 2024</span></span><span>STATEWIDE WINNER · MAINE AND NEBRASKA SPLIT ONE ELECTORAL VOTE EACH</span></div>
       </div>
     </div>
     <div class="grid g4">
@@ -931,7 +931,7 @@ var HARRIS=['CA','OR','WA','HI','NM','CO','MN','IL','NY','NJ','CT','RI','MA','VT
 function voteMap(){
   var z=ALL.map(function(s){return HARRIS.indexOf(s)>=0?1:0});
   var txt=ALL.map(function(s){return ST[s]+' · 2024: '+(HARRIS.indexOf(s)>=0?'Harris':'Trump')});
-  draw('m-vote',[states(ALL,z,[[0,C.red],[1,C.blue]],txt,0,1,'#F4EEE3')],lay(usaGeo({}),{}));
+  draw('m-vote',[states(ALL,z,[[0,C.red],[1,'#2C5A8C']],txt,0,1,'#F4EEE3')],lay(usaGeo({}),{}));
 }
 
 /* ================= III.2 TX/CA ================= */
