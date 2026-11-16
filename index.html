@@ -16,7 +16,7 @@
 :root{
   --bg:#F3ECDF; --panel:#FBF7EF; --panel2:#EFE5D3; --line:#DACBB2; --line2:#C2AC89;
   --ink:#1F1712; --mut:#6F5F51; --soft:#3E3129;
-  --gold:#8C5A2B; --gold2:#7A4A22; --red:#A3261E; --teal:#4F6B2E; --blue:#3D5A78; --sand:#B08A55; --olive:#5F6E3A; --viol:#94473A;
+  --gold:#8C5A2B; --gold2:#7A4A22; --red:#A3261E; --teal:#4F6B2E; --blue:#2E4A22; --sand:#B08A55; --olive:#5F6E3A; --viol:#94473A;
   --display:'Playfair Display',Georgia,serif; --body:'Source Serif 4',Georgia,serif; --mono:'Inter',system-ui,sans-serif;
   color-scheme:light;
 }
@@ -433,7 +433,7 @@ body.present.shownotes #notes{display:block}
       <div class="mapbox" style="flex:1.2 1 460px;min-width:0" id="b-vote">
         <div class="map" id="m-vote" role="img" aria-label="2024 presidential result by state"></div>
         <div class="fail">The map needs the Plotly library from a public CDN.</div>
-        <div class="mapcap"><span class="legend"><span><i style="background:#3D5A78"></i>Harris 2024</span><span><i style="background:#A3261E"></i>Trump 2024</span></span><span>STATEWIDE WINNER · MAINE AND NEBRASKA SPLIT ONE ELECTORAL VOTE EACH</span></div>
+        <div class="mapcap"><span class="legend"><span><i style="background:#2E4A22"></i>Harris 2024</span><span><i style="background:#A3261E"></i>Trump 2024</span></span><span>STATEWIDE WINNER · MAINE AND NEBRASKA SPLIT ONE ELECTORAL VOTE EACH</span></div>
       </div>
     </div>
     <div class="grid g4">
@@ -463,12 +463,12 @@ body.present.shownotes #notes{display:block}
         <div class="chips" id="metrics" role="group" aria-label="Metric"></div>
         <span style="font:700 28px var(--display);" id="mName"></span>
         <div class="bars"><div class="l"><span style="color:var(--gold2)">Texas</span><span id="mTx"></span></div><div class="bar"><i id="bTx" style="background:var(--gold)"></i></div></div>
-        <div class="bars"><div class="l"><span style="color:#3D5A78">California</span><span id="mCa"></span></div><div class="bar"><i id="bCa" style="background:var(--blue)"></i></div></div>
+        <div class="bars"><div class="l"><span style="color:#2E4A22">California</span><span id="mCa"></span></div><div class="bar"><i id="bCa" style="background:var(--blue)"></i></div></div>
         <span class="k" id="mSrc"></span>
         <div class="card" style="border-style:dashed;margin-top:auto"><span class="k" style="color:#A3261E">Myth vs data</span><p style="font-size:15px;color:var(--ink)">“Everyone is leaving California.” Population −0.5% since 2020 [S7], yet still the largest state economy at $4.25 tn [S9].</p></div>
       </section>
-      <article class="col" style="flex:1 1 340px;padding:20px;border-radius:3px;border:1px solid #9FB0C2;background:linear-gradient(200deg,rgba(61,90,120,.14),var(--panel) 55%)">
-        <span class="k" style="color:#3D5A78">Pacific · tech · scarce water</span>
+      <article class="col" style="flex:1 1 340px;padding:20px;border-radius:3px;border:1px solid #A9B88F;background:linear-gradient(200deg,rgba(79,107,46,.14),var(--panel) 55%)">
+        <span class="k" style="color:#2E4A22">Pacific · tech · scarce water</span>
         <h3 style="font-size:52px;">California</h3>
         <div class="mapbox" id="b-ca"><div class="map sm" id="m-ca" role="img" aria-label="Map of California with the Central Valley, Silicon Valley, Los Angeles ports and the Colorado River"></div><div class="fail">Map unavailable offline.</div></div>
         <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:var(--soft)"><li>Mexican cession 1848 · Gold Rush · state 1850</li><li>Silicon Valley, Hollywood, $61.2 bn farm receipts [S26]</li><li>Colorado River: federal framework 2027–36 [S27]</li><li>2024: carried by Harris · 54 electoral votes [S35]</li></ul>
@@ -695,7 +695,7 @@ function buildBib(){
 var ST={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'District of Columbia',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
 var ALL=Object.keys(ST);
 var TAGC={m:'MARSHALL',v:'VERIFIED FACT',a:'OUR ANALYSIS'};
-var C={land:'#E2D3B6',ocean:'#F4EEE3',country:'#B49A76',coast:'#8C6E4E',state:'#E8DBC2',stateLine:'#BCA584',gold:'#8C5A2B',gold2:'#7A4A22',red:'#A3261E',teal:'#4F6B2E',blue:'#3D5A78',ink:'#1F1712',mut:'#6F5F51',relief:'rgba(140,90,50,.45)',reliefLine:'#8C5A32'};
+var C={land:'#E2D3B6',ocean:'#F4EEE3',country:'#B49A76',coast:'#8C6E4E',state:'#E8DBC2',stateLine:'#BCA584',gold:'#8C5A2B',gold2:'#7A4A22',red:'#A3261E',teal:'#4F6B2E',blue:'#2E4A22',ink:'#1F1712',mut:'#6F5F51',relief:'rgba(140,90,50,.45)',reliefLine:'#8C5A32'};
 
 /* ================= PLOTLY HELPERS ================= */
 var CFG={displayModeBar:false,scrollZoom:false,responsive:true,doubleClick:false};
@@ -766,7 +766,7 @@ function greenland(){
 
 /* ================= II.1 LAND ================= */
 var L={relief:true,plains:false,rivers:true,arid:false,agri:false,energy:false,hubs:false};
-var LAYERS=[['relief','Mountain ranges','#B08452'],['plains','Plains and plateaus','#8A9A6A'],['rivers','Rivers (Mississippi system)','#3D6A8E'],['arid','Arid West · 100th meridian','#B07020'],['agri','Crop belts (USDA)','#5F823C'],['energy','Energy basins (EIA)','#A3261E'],['hubs','Ports and corridors','#7A3D6A']];
+var LAYERS=[['relief','Mountain ranges','#B08452'],['plains','Plains and plateaus','#8A9A6A'],['rivers','Rivers (Mississippi system)','#4A6B44'],['arid','Arid West · 100th meridian','#9A6A2A'],['agri','Crop belts (USDA)','#5F823C'],['energy','Energy basins (EIA)','#A3261E'],['hubs','Ports and corridors','#1F1712']];
 var CORN=['IA','IL','NE','MN','IN'],WHEAT=['KS','ND','MT','WA','ID'];
 var dotIdx=-1,FLOW=null;
 function landTraces(){
@@ -778,17 +778,17 @@ function landTraces(){
     d.push(labels([[44.5,-101.5,'GREAT PLAINS','middle center'],[41.2,-89.5,'CENTRAL LOWLAND','middle center'],[39.5,-116.8,'GREAT BASIN','middle center'],[37.5,-110.3,'COLORADO PLATEAU','middle center']],'#4A5A2E',10))}
   if(L.relief){['Rocky Mountains','Appalachian Mountains','Sierra Nevada','Cascade Range','Brooks Range','Alaska Range'].forEach(function(n){d=d.concat(nePoly(n,C.relief,C.reliefLine))});
     d.push(labels([[43.5,-109.5,'ROCKY MTS','middle center'],[37.6,-81.0,'APPALACHIANS','middle center'],[37.6,-119.4,'SIERRA NEVADA','middle left'],[45,-121.5,'CASCADES','middle left']],'#5A3418',11))}
-  if(L.arid){d=d.concat(nePoly('Sonoran Desert','rgba(176,112,32,.3)','#B07020','Sonoran Desert'),nePoly('Chihuahuan Desert','rgba(176,112,32,.3)','#B07020','Chihuahuan Desert'),nePoly('Great Basin','rgba(176,112,32,.18)','#B07020','Great Basin (arid)'));
-    d.push(line([-100,-100],[49,25.9],2,'#B07020','dash','100th meridian'));
+  if(L.arid){d=d.concat(nePoly('Sonoran Desert','rgba(154,106,42,.3)','#9A6A2A','Sonoran Desert'),nePoly('Chihuahuan Desert','rgba(154,106,42,.3)','#9A6A2A','Chihuahuan Desert'),nePoly('Great Basin','rgba(154,106,42,.18)','#9A6A2A','Great Basin (arid)'));
+    d.push(line([-100,-100],[49,25.9],2,'#9A6A2A','dash','100th meridian'));
     d.push(labels([[48.4,-100,'100th MERIDIAN · ARID WEST ← → HUMID EAST','middle right'],[33.2,-113.2,'SONORAN','middle center'],[31.5,-104.6,'CHIHUAHUAN','middle center']],'#7A4A10',11))}
-  if(L.rivers){['Missouri','Ohio','Tennessee','Arkansas','Columbia','Snake','Rio Grande','Colorado','Hudson'].forEach(function(n){d=d.concat(neRiver(n,1.8,'#4A7598'))});d=d.concat(neRiver('Mississippi',3.4,'#2F5F86'));
-    d.push({type:'scattergeo',mode:'markers',lon:[0,0,0],lat:[0,0,0],marker:{size:9,color:'#A3261E',line:{color:'#2F5F86',width:2}},hoverinfo:'skip'});dotIdx=d.length-1;
+  if(L.rivers){['Missouri','Ohio','Tennessee','Arkansas','Columbia','Snake','Rio Grande','Colorado','Hudson'].forEach(function(n){d=d.concat(neRiver(n,1.8,'#5F7A55'))});d=d.concat(neRiver('Mississippi',3.4,'#33503A'));
+    d.push({type:'scattergeo',mode:'markers',lon:[0,0,0],lat:[0,0,0],marker:{size:9,color:'#A3261E',line:{color:'#33503A',width:2}},hoverinfo:'skip'});dotIdx=d.length-1;
     d.push(pts([[29.95,-90.07,'New Orleans · one outlet to the Gulf','bottom left'],[38.63,-90.2,'St Louis','middle left'],[37.0,-89.17,'Cairo (Ohio joins)','bottom right']],{size:7,color:'#1F1712',fill:'#1F1712',ts:11}))}
   if(L.agri){d=d.concat(nePoly('Central Valley','rgba(95,130,60,.35)','#5F823C','Central Valley · $61.2 bn farm receipts in California, 2024 [CDFA]'));
     d.push(labels([[41.9,-93.4,'CORN BELT','middle center'],[46.4,-100.6,'WHEAT BELT','middle center'],[36.4,-121.2,'CENTRAL VALLEY','middle left']],'#2F4A18',11))}
   if(L.energy){d.push(pts([[31.9,-102.0,'Permian Basin · ~48% of US crude, 2025','middle right'],[48.1,-103.0,'Bakken','top right'],[28.7,-98.5,'Eagle Ford','bottom left'],[41.0,-77.0,'Marcellus gas','top right'],[37.7,-81.7,'Appalachian coal','bottom right'],[28.0,-91.0,'Federal Gulf offshore','bottom center'],[70.25,-148.4,'Prudhoe Bay','bottom center']],{size:10,color:C.red,fill:'rgba(179,51,42,.35)',ts:11,symbol:'square'}))}
-  if(L.hubs){d.push(line([-73.75,-75.23,-76.15,-77.61,-78.88],[42.65,43.1,43.05,43.16,42.89],3,'#7A3D6A','solid','Erie Canal 1825'));d.push(line([-95.93,-100.77,-104.82,-107.24,-111.97,-112.55,-119.81,-121.49],[41.26,41.12,41.14,41.79,41.22,41.62,39.53,38.58],3,'#7A3D6A','dash','Transcontinental railroad 1869'));
-    d.push(pts([[42.9,-76.0,'Erie Canal 1825','top left'],[41.2,-104.0,'Railroad 1869','top center'],[36.6,-83.67,'Cumberland Gap','bottom right'],[29.76,-95.37,'Houston','bottom right'],[33.74,-118.26,'LA–Long Beach','bottom left'],[47.6,-122.33,'Seattle','top left'],[40.7,-74.0,'New York','bottom right'],[36.9,-76.3,'Norfolk','bottom right'],[21.35,-157.95,'Pearl Harbor','bottom center']],{size:8,color:'#7A3D6A',fill:'#7A3D6A',ts:11}))}
+  if(L.hubs){d.push(line([-73.75,-75.23,-76.15,-77.61,-78.88],[42.65,43.1,43.05,43.16,42.89],3,'#1F1712','solid','Erie Canal 1825'));d.push(line([-95.93,-100.77,-104.82,-107.24,-111.97,-112.55,-119.81,-121.49],[41.26,41.12,41.14,41.79,41.22,41.62,39.53,38.58],3,'#1F1712','dash','Transcontinental railroad 1869'));
+    d.push(pts([[42.9,-76.0,'Erie Canal 1825','top left'],[41.2,-104.0,'Railroad 1869','top center'],[36.6,-83.67,'Cumberland Gap','bottom right'],[29.76,-95.37,'Houston','bottom right'],[33.74,-118.26,'LA–Long Beach','bottom left'],[47.6,-122.33,'Seattle','top left'],[40.7,-74.0,'New York','bottom right'],[36.9,-76.3,'Norfolk','bottom right'],[21.35,-157.95,'Pearl Harbor','bottom center']],{size:8,color:'#1F1712',fill:'#1F1712',ts:11}))}
   return d;
 }
 function renderLand(){draw('m-land',landTraces(),lay(usaGeo({}),{}))}
@@ -840,12 +840,12 @@ var ERA=[
   {y:'1914',n:'Panama Canal opens',t:'m',tg:'MARSHALL · CH. 9',p:'US rights from 1903; the canal saves a voyage of about 8,000 miles and joins the two coasts and the two fleets.',s:[],v:VPA}
 ];
 var ROUTES=[
-  {e:0,n:'Wilderness Road · 1775',c:'#B07020',p:[[36.55,-82.56],[36.6,-83.67],[37.9,-84.27],[38.25,-85.76]]},
+  {e:0,n:'Wilderness Road · 1775',c:'#9A6A2A',p:[[36.55,-82.56],[36.6,-83.67],[37.9,-84.27],[38.25,-85.76]]},
   {e:1,n:'Lewis and Clark · 1804–06',c:'#8FA36B',p:[[38.63,-90.2],[39.1,-94.58],[41.26,-95.93],[42.5,-96.4],[44.37,-100.35],[47.3,-101.4],[47.5,-111.3],[45.9,-111.5],[44.97,-113.44],[46.63,-114.58],[46.42,-117.02],[45.6,-121.18],[46.13,-123.88]]},
-  {e:2,n:'Erie Canal · 1825',c:'#7A3D6A',p:[[42.65,-73.75],[43.1,-75.23],[43.05,-76.15],[43.16,-77.61],[42.89,-78.88]]},
+  {e:2,n:'Erie Canal · 1825',c:'#1F1712',p:[[42.65,-73.75],[43.1,-75.23],[43.05,-76.15],[43.16,-77.61],[42.89,-78.88]]},
   {e:4,n:'Oregon Trail · 1840s',c:'#9A7A3A',p:[[39.09,-94.42],[40.64,-99.0],[41.7,-103.35],[42.2,-104.56],[42.36,-108.92],[43.03,-112.43],[43.6,-116.2],[45.6,-121.18],[45.36,-122.6]]},
   {e:6,n:'Transcontinental railroad · 1869',c:'#7A4A22',p:[[41.26,-95.93],[41.12,-100.77],[41.14,-104.82],[41.31,-105.59],[41.79,-107.24],[41.22,-111.97],[41.62,-112.55],[39.53,-119.81],[38.58,-121.49]]},
-  {e:8,n:'Panama Canal sea route · 1914',c:'#2F5F86',p:[[40.6,-73.9],[35,-74.5],[25,-74],[20,-73.6],[14,-77],[9.36,-79.9],[8.95,-79.53],[12,-88],[16,-97],[22,-108],[28,-116],[37.8,-122.5]]}
+  {e:8,n:'Panama Canal sea route · 1914',c:'#33503A',p:[[40.6,-73.9],[35,-74.5],[25,-74],[20,-73.6],[14,-77],[9.36,-79.9],[8.95,-79.53],[12,-88],[16,-97],[22,-108],[28,-116],[37.8,-122.5]]}
 ];
 var ECOL=[[0,'#5C3A24'],[0.125,'#6E4529'],[0.25,'#82512D'],[0.375,'#96602F'],[0.5,'#A86D33'],[0.625,'#8C5A2B'],[0.75,'#A4542E'],[0.875,'#93392A'],[1,'#A3261E']];
 var cur=0,timer=null,rDot=-1,rVis=[];
@@ -856,7 +856,7 @@ function eraTraces(){
   rVis=ROUTES.filter(function(r){return r.e<=cur});
   rVis.forEach(function(r){d.push(line(r.p.map(function(q){return q[1]}),r.p.map(function(q){return q[0]}),r.e===cur?3.4:2.2,r.c,r.e===8?'dot':'solid',r.n))});
   d.push({type:'scattergeo',mode:'markers',lon:rVis.map(function(){return 0}),lat:rVis.map(function(){return 0}),marker:{size:9,color:'#A3261E',line:{color:rVis.map(function(r){return r.c}),width:2}},hoverinfo:'skip'});rDot=d.length-1;
-  if(cur>=8)d.push(pts([[9.1,-79.7,'Panama Canal','middle left']],{size:9,color:'#2F5F86',fill:'#2F5F86',ts:11}));
+  if(cur>=8)d.push(pts([[9.1,-79.7,'Panama Canal','middle left']],{size:9,color:'#33503A',fill:'#33503A',ts:11}));
   return d;
 }
 function eraLayout(){var v=ERA[cur].v;return lay(naGeo(v[0],v[1],{}),{})}
@@ -945,10 +945,10 @@ function renderMet(){
 }
 function metInit(){var box=$('#metrics');MET.forEach(function(m,i){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=m[0];b.addEventListener('click',function(){mi=i;renderMet()});box.appendChild(b)});renderMet()}
 function stateMap(id,code,col,fill,extra,lon,lat){
-  draw(id,[states([code],[1],flat(fill),[ST[code]],0,1,col)].concat(extra),lay(naGeo(lon,lat,{showrivers:true,rivercolor:'#4A7598',riverwidth:1.1}),{}));
+  draw(id,[states([code],[1],flat(fill),[ST[code]],0,1,col)].concat(extra),lay(naGeo(lon,lat,{showrivers:true,rivercolor:'#5F7A55',riverwidth:1.1}),{}));
 }
-function txMap(){stateMap('m-tx','TX','#8C5A2B','rgba(181,121,58,.22)',neRiver('Rio Grande',2,'#3D6A8E').concat([pts([[31.9,-102.0,'Permian Basin','middle right'],[29.76,-95.37,'Houston','bottom right'],[29.88,-93.94,'Port Arthur refinery','middle right'],[27.8,-97.4,'Corpus Christi','bottom right'],[27.5,-99.5,'Laredo (US–Mexico trade)','bottom left'],[30.27,-97.74,'Austin','middle left']],{size:7,color:C.gold2,fill:C.gold,ts:10})]),[-107.5,-92.5],[25.3,37.2])}
-function caMap(){stateMap('m-ca','CA','#3D5A78','rgba(79,111,143,.2)',nePoly('Central Valley','rgba(95,130,60,.35)','#5F823C','Central Valley').concat(nePoly('Sierra Nevada','rgba(176,132,82,.5)','#B08452','Sierra Nevada'),neRiver('Colorado',2,'#3D6A8E'),[pts([[37.39,-122.08,'Silicon Valley','middle left'],[34.05,-118.24,'Los Angeles','middle left'],[33.74,-118.26,'LA–Long Beach ports','bottom left'],[38.58,-121.49,'Sacramento','top right'],[34.5,-114.3,'Colorado River','middle left']],{size:7,color:'#3D5A78',fill:C.blue,ts:10})]),[-125.5,-113],[31.8,42.5])}
+function txMap(){stateMap('m-tx','TX','#8C5A2B','rgba(181,121,58,.22)',neRiver('Rio Grande',2,'#4A6B44').concat([pts([[31.9,-102.0,'Permian Basin','middle right'],[29.76,-95.37,'Houston','bottom right'],[29.88,-93.94,'Port Arthur refinery','middle right'],[27.8,-97.4,'Corpus Christi','bottom right'],[27.5,-99.5,'Laredo (US–Mexico trade)','bottom left'],[30.27,-97.74,'Austin','middle left']],{size:7,color:C.gold2,fill:C.gold,ts:10})]),[-107.5,-92.5],[25.3,37.2])}
+function caMap(){stateMap('m-ca','CA','#2E4A22','rgba(79,107,46,.2)',nePoly('Central Valley','rgba(95,130,60,.35)','#5F823C','Central Valley').concat(nePoly('Sierra Nevada','rgba(176,132,82,.5)','#B08452','Sierra Nevada'),neRiver('Colorado',2,'#4A6B44'),[pts([[37.39,-122.08,'Silicon Valley','middle left'],[34.05,-118.24,'Los Angeles','middle left'],[33.74,-118.26,'LA–Long Beach ports','bottom left'],[38.58,-121.49,'Sacramento','top right'],[34.5,-114.3,'Colorado River','middle left']],{size:7,color:'#2E4A22',fill:C.blue,ts:10})]),[-125.5,-113],[31.8,42.5])}
 
 /* ================= III.3 CULTURE ================= */
 var WORKS=[
