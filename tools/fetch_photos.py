@@ -62,6 +62,9 @@ for e in E:
     if not (os.path.exists(path) and old.get('file') == f):
         open(path, 'wb').write(get(url)); time.sleep(0.3)
     man[k] = {'src': path, 'file': f, 'cap': e['cap'], 'by': d['by'] or 'Wikimedia Commons', 'lic': d['lic'], 'alias': e.get('alias', [])}
+keep = {os.path.basename(v['src']) for v in man.values()} | {'manifest.json', 'photos.js', 'report.txt'}
+for fn in os.listdir(OUT):
+    if fn not in keep: os.remove(os.path.join(OUT, fn))
 json.dump(man, open(OUT + '/manifest.json', 'w'), ensure_ascii=False, indent=0)
 open(OUT + '/photos.js', 'w').write('window.PHM=' + json.dumps({k: [v['src'], v['cap'], v['by'], v['lic'], v['file'], v['alias']] for k, v in man.items()}, ensure_ascii=False) + ';\n')
 open(OUT + '/report.txt', 'w').write('\n'.join(report) + '\n%d photos saved\n' % len(man))

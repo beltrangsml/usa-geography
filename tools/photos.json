@@ -140,7 +140,9 @@
 "k": "central lowland",
 "cap": "Farmland of the Central Lowland, Illinois (NASA)",
 "file": "Field of Soy Dreams in Illinois (154418).jpg",
-"alias": []
+"alias": [
+"corn belt"
+]
 },
 {
 "k": "great basin",
@@ -160,7 +162,9 @@
 "k": "columbia plateau",
 "cap": "Wheat fields of the Palouse, Columbia Plateau",
 "file": "Palouse Rolling Fields Of Wheat (230934259).jpeg",
-"alias": []
+"alias": [
+"wheat belt"
+]
 },
 {
 "k": "ozark plateau",
@@ -660,8 +664,8 @@
 "k": "yucatán channel",
 "cap": "The Yucatán Channel",
 "titles": [
-"Yucatán Channel",
-"Cape San Antonio, Cuba"
+"Cape San Antonio, Cuba",
+"Guanahacabibes Peninsula"
 ],
 "alias": []
 },
@@ -710,7 +714,6 @@
 "k": "laredo",
 "cap": "World Trade Bridge, Laredo: the busiest US–Mexico freight crossing",
 "titles": [
-"World Trade International Bridge",
 "Laredo, Texas"
 ],
 "alias": []
@@ -751,9 +754,9 @@
 },
 {
 "k": "greenland",
-"cap": "The Greenland ice sheet",
+"cap": "Ilulissat Icefjord, Greenland",
 "titles": [
-"Greenland ice sheet"
+"Ilulissat Icefjord"
 ],
 "alias": []
 },
@@ -785,7 +788,7 @@
 "k": "yokosuka",
 "cap": "US Fleet Activities Yokosuka, Japan",
 "titles": [
-"United States Fleet Activities Yokosuka"
+"Yokosuka, Kanagawa"
 ],
 "alias": []
 },
@@ -895,17 +898,17 @@
 },
 {
 "k": "allegheny plateau",
-"cap": "The Allegheny Plateau",
+"cap": "Allegheny National Forest on the Allegheny Plateau",
 "titles": [
-"Allegheny Plateau"
+"Allegheny National Forest"
 ],
 "alias": []
 },
 {
 "k": "cumberland plateau",
-"cap": "The Cumberland Plateau",
+"cap": "Fall Creek Falls on the Cumberland Plateau",
 "titles": [
-"Cumberland Plateau"
+"Fall Creek Falls State Park"
 ],
 "alias": []
 },
@@ -929,9 +932,9 @@
 },
 {
 "k": "edwards plateau",
-"cap": "The Edwards Plateau",
+"cap": "The Texas Hill Country on the Edwards Plateau",
 "titles": [
-"Edwards Plateau"
+"Texas Hill Country"
 ],
 "alias": []
 },
@@ -945,57 +948,11 @@
 },
 {
 "k": "coastal plain",
-"cap": "The Gulf Coastal Plain",
+"cap": "The Atchafalaya Basin on the Gulf Coastal Plain",
 "titles": [
-"Gulf Coastal Plain",
-"Atlantic coastal plain"
+"Atchafalaya Basin"
 ],
 "alias": []
-},
-{
-"k": "corn belt",
-"cap": "The Corn Belt",
-"titles": [
-"Corn Belt"
-],
-"alias": []
-},
-{
-"k": "wheat belt",
-"cap": "Wheat harvest on the Great Plains",
-"titles": [
-"Wheat Belt (North America)",
-"Wheat belt"
-],
-"alias": []
-},
-{
-"k": "100th meridian",
-"cap": "The 100th meridian west",
-"titles": [
-"100th meridian west"
-],
-"alias": []
-},
-{
-"k": "ocean atlantic",
-"cap": "The Atlantic Ocean",
-"titles": [
-"Atlantic Ocean"
-],
-"alias": [
-"atlantic"
-]
-},
-{
-"k": "ocean pacific",
-"cap": "The Pacific Ocean",
-"titles": [
-"Pacific Ocean"
-],
-"alias": [
-"pacific"
-]
 },
 {
 "k": "newport",
@@ -1025,7 +982,8 @@
 "k": "mackinac",
 "cap": "Mackinac Island",
 "titles": [
-"Mackinac Island"
+"Grand Hotel (Mackinac Island)",
+"Mackinac Island State Park"
 ],
 "alias": []
 },
@@ -1233,7 +1191,6 @@
 "k": "selma",
 "cap": "Selma, Alabama",
 "titles": [
-"Selma, Alabama",
 "Edmund Pettus Bridge"
 ],
 "alias": []
