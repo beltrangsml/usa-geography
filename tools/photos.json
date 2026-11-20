@@ -1304,5 +1304,19 @@
 "Statue of Liberty"
 ],
 "alias": []
+},
+{
+"k": "map-mackinder",
+"cap": "Mackinder's map for “The Geographical Pivot of History”, Geographical Journal, April 1904",
+"file": "Heartland.png",
+"w": 1600,
+"alias": []
+},
+{
+"k": "map-spykman",
+"cap": "Map of the Heartland and Rimland concepts, scanned from a 1942 book (Spykman, America's Strategy in World Politics)",
+"file": "Spykman's Rimland-map.jpg",
+"w": 1600,
+"alias": []
 }
 ]
