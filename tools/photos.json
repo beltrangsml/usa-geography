@@ -469,12 +469,6 @@
 "w": 1600
 },
 {
-"k": "bg-people",
-"cap": "Times Square, New York",
-"file": "Times Square, New York City, 20231003 1232 1916.jpg",
-"w": 1600
-},
-{
 "k": "bg-txca",
 "cap": "Santa Elena Canyon: the US on the left, Mexico on the right",
 "file": "Santa Elena Canyon (Left Side is United States, Right Side is Mexico), Big Bend National Park, Texas.jpg",
@@ -657,15 +651,6 @@
 "cap": "Havana",
 "titles": [
 "Havana"
-],
-"alias": []
-},
-{
-"k": "yucatán channel",
-"cap": "The Yucatán Channel",
-"titles": [
-"Cape San Antonio, Cuba",
-"Guanahacabibes Peninsula"
 ],
 "alias": []
 },
