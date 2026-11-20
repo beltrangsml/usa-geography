@@ -614,14 +614,6 @@
 "lic": "CC BY 2.0",
 "alias": []
 },
-"bg-people": {
-"src": "assets/photos/bg-people.jpg",
-"file": "Times Square, New York City, 20231003 1232 1916.jpg",
-"cap": "Times Square, New York",
-"by": "Jakub Hałun",
-"lic": "CC BY 4.0",
-"alias": []
-},
 "bg-txca": {
 "src": "assets/photos/bg-txca.jpg",
 "file": "Santa Elena Canyon (Left Side is United States, Right Side is Mexico), Big Bend National Park, Texas.jpg",
@@ -820,14 +812,6 @@
 "cap": "Havana",
 "by": "RenaatPeeters",
 "lic": "CC BY-SA 4.0",
-"alias": []
-},
-"yucatán channel": {
-"src": "assets/photos/yucat-n-channel.jpg",
-"file": "1854_Hidrografica_Nautical_Chart_of_Map_of_Cuba_-_Geographicus_-_CubaWest-hydrografica-1837.jpg",
-"cap": "The Yucatán Channel",
-"by": "http://www.geographicus.com/mm5/cartographers/hidrografica.txt",
-"lic": "Public domain",
 "alias": []
 },
 "anchorage": {
