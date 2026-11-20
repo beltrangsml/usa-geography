@@ -19,7 +19,7 @@ def api(host, params):
     return json.loads(get('https://%s/w/api.php?%s' % (host, urllib.parse.urlencode(params))))
 E = json.load(open('tools/photos.json'))
 # 1. resolve Wikipedia titles to their lead image
-need = sorted({t for e in E if 'file' not in e for t in e['titles']})
+need = sorted({t for e in E if 'titles' in e for t in e['titles']})
 lead = {}
 for i in range(0, len(need), 40):
     r = api('en.wikipedia.org', {'action': 'query', 'prop': 'pageimages', 'piprop': 'name', 'redirects': '1', 'titles': '|'.join(need[i:i+40])})['query']
@@ -30,10 +30,10 @@ for i in range(0, len(need), 40):
         if p.get('pageimage'):
             t = p['title']; lead[back.get(t, t)] = p['pageimage']; lead[t] = p['pageimage']
 for e in E:
-    if 'file' not in e:
+    if 'titles' in e:
         e['file'] = next((lead[t] for t in e['titles'] if t in lead), None)
 # 2. licence + thumbnail from Commons
-files = sorted({e['file'] for e in E if e.get('file')})
+files = sorted({e['file'] for e in E if e.get('file') and 'url' not in e})
 info = {}
 for w in (960, 1600):
     for i in range(0, len(files), 40):
@@ -50,6 +50,16 @@ for w in (960, 1600):
 FREE = re.compile(r'public domain|^pd|cc0|cc[ -]by|attribution|no restrictions', re.I)
 man, report = {}, []
 for e in E:
+    if 'url' in e:  # official US Government photo (public domain), downloaded directly
+        path = '%s/%s.jpg' % (OUT, e['k'])
+        if not os.path.exists(path):
+            open(path, 'wb').write(get(e['url']))
+            try:
+                from PIL import Image
+                im = Image.open(path).convert('RGB'); im.thumbnail((1280, 1280)); im.save(path, 'JPEG', quality=80, optimize=True)
+            except Exception as x: print('resize skipped', x)
+        man[e['k']] = {'src': path, 'file': e['page'], 'cap': e['cap'], 'by': e['by'], 'lic': e['lic'], 'alias': []}
+        continue
     k, f = e['k'], e.get('file')
     d = info.get(f) if f else None
     if not d: report.append('NOT FOUND  %s  %s' % (k, f or e.get('titles'))); continue
