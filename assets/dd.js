@@ -47,7 +47,7 @@ function ico(k){return '<svg viewBox="0 0 16 16" fill="none" stroke="currentColo
 window.DataDesk=function(root,cfg){
   cfg=cfg||{};var uid=root.id||('dd'+Math.random().toString(36).slice(2,7));
   var st={year:'2024',cmp:'2019',reg:'ALL',metric:cfg.metric||'fb',a:cfg.pair?cfg.pair[0]:null,b:cfg.pair?cfg.pair[1]:null,q:'',sort:null,dir:-1,view:'map'};
-  var VIEWS=[['map','Map & profile','map'],['trend','Trends','trend'],['rank','Ranking','rank'],['table','Table','table']].concat(cfg.extra?[['extra','Economy','coin']]:[]);
+  var VIEWS=[['map','Map & profile','map'],['trend','Trends','trend'],['rank','Ranking','rank'],['table','Table','table']].concat(cfg.extra?[['extra','Economy','coin']]:[]).filter(function(v){return !cfg.views||cfg.views.indexOf(v[0])>=0});if(cfg.views)root.classList.add('dd-compact');
   var codes=Object.keys(D.states).sort(function(x,y){return D.states[x].name<D.states[y].name?-1:1});
   root.classList.add('dd');
   root.innerHTML=
