@@ -79,7 +79,6 @@
 .dd-chead p{margin:3px 0 0;font-size:13px;color:var(--mut)}
 
 /* geographic map */
-.dd-map{position:sticky;top:84px}
 .dd-mapbox svg{width:100%;height:auto;display:block}
 .dd .st{stroke:#FFFDF8;stroke-width:.9;stroke-linejoin:round;cursor:pointer;transition:fill .45s ease,opacity .3s,filter .15s}
 .dd .st:hover{filter:brightness(.92) saturate(1.1);stroke:#1F1712;stroke-width:1.3}
@@ -188,7 +187,7 @@
 @media (prefers-reduced-motion:reduce){.dd *,.dd *::after{animation:none!important;transition:none!important}}
 
 /* responsive */
-@media (max-width:1180px){.dd-map{position:static}.dd-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.dd-main,.dd-lower{grid-template-columns:1fr}}
+@media (max-width:1180px){.dd-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.dd-main,.dd-lower{grid-template-columns:1fr}}
 @media (max-width:640px){
   .dd{border-radius:12px}
   .dd-top{grid-template-columns:1fr;padding:16px}.dd-status{align-items:flex-start}
@@ -200,3 +199,19 @@
   .dd .lb{font-size:13px}.dd .lb.sm{font-size:12px}
   .dd-modal{padding:20px 10px}.dd-modal dl{grid-template-columns:1fr}
 }
+
+/* v3 · internal view menu: one view at a time keeps the dashboard compact */
+.dd-shell{display:grid;grid-template-columns:148px minmax(0,1fr);gap:16px;align-items:start}
+.dd-side{display:flex;flex-direction:column;gap:4px;position:sticky;top:84px;padding:6px;border:1px solid var(--line);border-radius:14px;background:#F6EEE0}
+.dd-side button{display:flex;align-items:center;gap:9px;border:0;background:none;padding:10px 10px;border-radius:10px;font:600 12.5px var(--num);color:var(--mut);text-align:left;transition:background .18s,color .18s,box-shadow .18s}
+.dd-side button svg{width:16px;height:16px;flex:none}
+.dd-side button:hover{color:var(--ink);background:rgba(255,255,255,.6)}
+.dd-side button[aria-selected=true]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(60,35,15,.16)}
+.dd-side button[aria-selected=true] svg{color:var(--red)}
+.dd-views{min-width:0}
+.dd-detail{max-height:660px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#D7C5A8 transparent}
+.dd-view .dd-rank{max-height:560px;display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:2px 24px;align-content:start}
+.dd-view .dd-fig{min-height:340px}
+.dd-view .dd-tw{max-height:600px}
+@media (max-width:1180px){.dd-shell{grid-template-columns:1fr}.dd-side{position:static;flex-direction:row;overflow-x:auto;scrollbar-width:none}.dd-side button{flex:none}.dd-detail{max-height:none}}
+@media (max-width:640px){.dd-side button span{font-size:12px}.dd-view .dd-rank{grid-template-columns:1fr;max-height:480px}}

@@ -41,12 +41,13 @@ function delta(m,a,b){if(a==null||b==null)return null;var d=a-b;
 var reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
 function countUp(el,to,fmt){var from=el.dataset.v!=null?+el.dataset.v:to*.9,t0=performance.now();el.dataset.v=to;if(reduced){el.textContent=fmt(to);return}
   (function f(t){var p=Math.min(1,(t-t0)/650),e=1-Math.pow(1-p,3);el.textContent=fmt(from+(to-from)*e);if(p<1)requestAnimationFrame(f)})(t0)}
-var ICON={info:'<circle cx="8" cy="8" r="6.5"/><path d="M8 7v4M8 5h.01"/>',csv:'<path d="M8 2v8m0 0 3-3m-3 3L5 7M3 13h10"/>',reset:'<path d="M3 8a5 5 0 1 0 1.5-3.5M3 2.5V5h2.5"/>',table:'<rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M2 7h12M6 7v6"/>'};
+var ICON={info:'<circle cx="8" cy="8" r="6.5"/><path d="M8 7v4M8 5h.01"/>',csv:'<path d="M8 2v8m0 0 3-3m-3 3L5 7M3 13h10"/>',reset:'<path d="M3 8a5 5 0 1 0 1.5-3.5M3 2.5V5h2.5"/>',table:'<rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M2 7h12M6 7v6"/>',map:'<path d="M1.5 4 6 2l4 2 4.5-2v10L10 14l-4-2-4.5 2z"/><path d="M6 2v10M10 4v10"/>',trend:'<path d="M1.5 12.5 6 8l3 3 5.5-6.5"/><path d="M11 4.5h3.5V8"/>',rank:'<path d="M2 3h12M2 6.5h9M2 10h6M2 13.5h3"/>',coin:'<path d="M2 13.5h12M3.5 13.5V8M7 13.5V5M10.5 13.5V9.5M14 13.5V3"/>'};
 function ico(k){return '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">'+ICON[k]+'</svg>'}
 
 window.DataDesk=function(root,cfg){
   cfg=cfg||{};var uid=root.id||('dd'+Math.random().toString(36).slice(2,7));
-  var st={year:'2024',cmp:'2019',reg:'ALL',metric:cfg.metric||'fb',a:cfg.pair?cfg.pair[0]:null,b:cfg.pair?cfg.pair[1]:null,q:'',sort:null,dir:-1,table:false};
+  var st={year:'2024',cmp:'2019',reg:'ALL',metric:cfg.metric||'fb',a:cfg.pair?cfg.pair[0]:null,b:cfg.pair?cfg.pair[1]:null,q:'',sort:null,dir:-1,view:'map'};
+  var VIEWS=[['map','Map & profile','map'],['trend','Trends','trend'],['rank','Ranking','rank'],['table','Table','table']].concat(cfg.extra?[['extra','Economy','coin']]:[]);
   var codes=Object.keys(D.states).sort(function(x,y){return D.states[x].name<D.states[y].name?-1:1});
   root.classList.add('dd');
   root.innerHTML=
@@ -63,12 +64,14 @@ window.DataDesk=function(root,cfg){
   '<div class="dd-body">'+
    '<p class="dd-find" data-p="find" aria-live="polite"></p>'+
    '<div class="dd-kpis" data-p="kpis"></div>'+
-   '<div class="dd-main"><section class="dd-card dd-map" aria-label="Map"><div class="dd-chead"><div><h4 data-p="mapT"></h4><p data-p="mapS"></p></div></div><div class="dd-mapbox" data-p="map"></div><div class="dd-legend" data-p="leg"></div></section>'+
-   '<section class="dd-card dd-detail" aria-live="polite" data-p="det"></section></div>'+
-   (cfg.extra?'<section class="dd-card" data-p="extra"></section>':'')+
-   '<div class="dd-lower"><section class="dd-card"><div class="dd-chead"><div><h4 data-p="trT"></h4><p data-p="trS"></p></div></div><div class="dd-fig" data-p="trend"></div><div class="dd-legend" data-p="trL"></div></section>'+
-   '<section class="dd-card"><div class="dd-chead"><div><h4 data-p="rkT"></h4><p data-p="rkS"></p></div></div><div class="dd-usline" data-p="usl"></div><div class="dd-rank" data-p="rank"></div></section></div>'+
-   '<section class="dd-card"><div class="dd-chead"><div><h4>All states · data table</h4><p>Sort by any column, search, click a row to open the state.</p></div><div class="dd-ctl"><input type="search" placeholder="Search a state…" aria-label="Search a state" data-p="q"><button class="dd-ib" type="button" data-act="tbl" aria-expanded="false">'+ico('table')+'<span>Show table</span></button></div></div><div class="dd-tw" data-p="tw" hidden><table><thead data-p="th"></thead><tbody data-p="tb"></tbody></table></div></section>'+
+   '<div class="dd-shell"><nav class="dd-side" role="tablist" aria-label="Dashboard views">'+VIEWS.map(function(v){return '<button type="button" role="tab" data-view="'+v[0]+'">'+ico(v[2])+'<span>'+v[1]+'</span></button>'}).join('')+'</nav><div class="dd-views">'+
+   '<div class="dd-view" data-view="map"><div class="dd-main"><section class="dd-card dd-map" aria-label="Map"><div class="dd-chead"><div><h4 data-p="mapT"></h4><p data-p="mapS"></p></div></div><div class="dd-mapbox" data-p="map"></div><div class="dd-legend" data-p="leg"></div></section>'+
+   '<section class="dd-card dd-detail" aria-live="polite" data-p="det"></section></div></div>'+
+   '<div class="dd-view" data-view="trend"><section class="dd-card"><div class="dd-chead"><div><h4 data-p="trT"></h4><p data-p="trS"></p></div></div><div class="dd-fig" data-p="trend"></div><div class="dd-legend" data-p="trL"></div></section></div>'+
+   '<div class="dd-view" data-view="rank"><section class="dd-card"><div class="dd-chead"><div><h4 data-p="rkT"></h4><p data-p="rkS"></p></div></div><div class="dd-usline" data-p="usl"></div><div class="dd-rank" data-p="rank"></div></section></div>'+
+   '<div class="dd-view" data-view="table"><section class="dd-card"><div class="dd-chead"><div><h4>All states · data table</h4><p>Sort by any column, search, click a row to open the state on the map.</p></div><div class="dd-ctl"><input type="search" placeholder="Search a state…" aria-label="Search a state" data-p="q"></div></div><div class="dd-tw"><table><thead data-p="th"></thead><tbody data-p="tb"></tbody></table></div></section></div>'+
+   (cfg.extra?'<div class="dd-view" data-view="extra"><section class="dd-card" data-p="extra"></section></div>':'')+
+   '</div></div>'+
   '</div>'+
   '<div class="dd-modal" data-p="modal" role="dialog" aria-modal="true" aria-label="Method and sources"><div class="box"><button class="x" type="button" aria-label="Close">×</button><div data-p="mbody"></div></div></div>';
   var P={};root.querySelectorAll('[data-p]').forEach(function(e){P[e.dataset.p]=e});
@@ -89,15 +92,17 @@ window.DataDesk=function(root,cfg){
   root.querySelector('[data-g=reg]').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;st.reg=b.dataset.v;render()});
   root.querySelector('[data-g=cmp]').addEventListener('change',function(e){st.cmp=e.target.value;render()});
   root.querySelector('.dd-tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;st.metric=b.dataset.m;render()});
-  P.q.addEventListener('input',function(){st.q=P.q.value.trim().toLowerCase();if(st.q&&!st.table)toggleTable(true);renderTable()});
-  root.querySelector('[data-act=tbl]').addEventListener('click',function(){toggleTable(!st.table)});
-  function toggleTable(on){st.table=on;P.tw.hidden=!on;var b=root.querySelector('[data-act=tbl]');b.setAttribute('aria-expanded',on);b.querySelector('span').textContent=on?'Hide table':'Show table'}
-  root.querySelector('[data-act=reset]').addEventListener('click',function(){st.year='2024';st.cmp='2019';st.reg='ALL';st.metric=cfg.metric||'fb';st.a=cfg.pair?cfg.pair[0]:null;st.b=cfg.pair?cfg.pair[1]:null;st.q='';P.q.value='';st.sort=null;render()});
+  P.q.addEventListener('input',function(){st.q=P.q.value.trim().toLowerCase();renderTable()});
+  root.querySelector('.dd-side').addEventListener('click',function(e){var b=e.target.closest('button');if(b)setView(b.dataset.view)});
+  function setView(v){st.view=v;root.querySelectorAll('.dd-side button').forEach(function(b){b.setAttribute('aria-selected',b.dataset.view===v)});
+    root.querySelectorAll('.dd-view').forEach(function(d){var on=d.dataset.view===v;d.hidden=!on;if(on){d.classList.remove('fade');void d.offsetWidth;d.classList.add('fade')}});
+    if(v==='trend')renderTrend();if(v==='map'&&st.a)renderDetail()}
+  root.querySelector('[data-act=reset]').addEventListener('click',function(){st.year='2024';st.cmp='2019';st.reg='ALL';st.metric=cfg.metric||'fb';st.a=cfg.pair?cfg.pair[0]:null;st.b=cfg.pair?cfg.pair[1]:null;st.q='';P.q.value='';st.sort=null;setView('map');render()});
   root.querySelector('[data-act=csv]').addEventListener('click',exportCSV);
   root.querySelector('[data-act=info]').addEventListener('click',function(){P.mbody.innerHTML=methodHTML();if(cfg.onRender)cfg.onRender(P.mbody);P.modal.classList.add('on');P.modal.querySelector('.x').focus()});
   P.modal.addEventListener('click',function(e){if(e.target===P.modal||e.target.closest('.x'))P.modal.classList.remove('on')});
   root.addEventListener('keydown',function(e){if(e.key==='Escape')P.modal.classList.remove('on')});
-  function select(c,ev){if(ev&&(ev.shiftKey||ev.metaKey||ev.ctrlKey)&&st.a&&c!==st.a)st.b=c;else if(c===st.a){st.a=st.b;st.b=null}else if(c===st.b){st.b=null}else st.a=c;render();
+  function select(c,ev){if(ev&&(ev.shiftKey||ev.metaKey||ev.ctrlKey)&&st.a&&c!==st.a)st.b=c;else if(c===st.a){st.a=st.b;st.b=null}else if(c===st.b){st.b=null}else st.a=c;if(st.view==='rank'||st.view==='table')setView('map');render();
     if(ev&&ev.type==='click'&&innerWidth<1000)P.det.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'})}
 
   function render(){
@@ -242,7 +247,7 @@ window.DataDesk=function(root,cfg){
       [[cfg.pair[0],x[1],x[3],A_COL],[cfg.pair[1],x[2],x[4],B_COL]].map(function(r){return '<div class="hb"><span class="lab">'+r[0]+'</span><span class="bar"><i style="width:'+(Math.abs(r[1])/mx*100).toFixed(1)+'%;background:'+r[3]+'"></i></span><span class="num">'+esc(r[2])+'</span></div>'}).join('')+'<span class="srcl">'+esc(x[5])+'</span></div>'}).join('')+'</div>'}
 
   // ---------- trend chart (regions or selected states)
-  function renderTrend(){var k=M[st.metric].fixed?null:st.metric;
+  function renderTrend(){if(st.view!=='trend')return;var k=M[st.metric].fixed?null:st.metric;
     if(!k){var m=M[st.metric];P.trT.textContent=m.lab+' by census region';P.trS.textContent=m.fixed+' only: no time series. Bars compare the four regions.';P.trL.innerHTML='';
       if(st.metric==='vote')P.trend.innerHTML='<div class="dd-hbars">'+Object.keys(REG).map(function(r){var v=D.vote[r];return '<div class="dd-sub" style="border:0;margin:8px 0 2px">'+REG[r]+' <span>'+M.vote.f(v.m)+' pp</span></div>'+stack(voteParts(v))}).join('')+'</div>';
       else{var rows=Object.keys(REG).map(function(r){var cs=codes.filter(function(c){return D.states[c].reg===r}),mn=Math.min.apply(0,cs.map(function(c){return val(c,'rel')})),mx=Math.max.apply(0,cs.map(function(c){return val(c,'rel')}));return[r,mn,mx]});
@@ -290,7 +295,7 @@ window.DataDesk=function(root,cfg){
     '<dt>Consistency</dt><dd>Headline figures elsewhere on this site come from other official releases with other dates: population 341.8 M (Population Estimates, July 2025'+cs('pep')+') and foreign-born 15.4% (Pew, June 2025'+cs('fbpew')+'). The ACS gives 340.1 M and 14.8% for 2024. The Appalachia case study uses five-year ACS averages for 2020–24 (US poverty 12.5%, median income $80.7k). Each figure is correct for its own source and period.</dd>'+
     '<dt>Caveats</dt><dd>Survey estimates carry margins of error, larger in small states. National and regional ACS figures are the Census Bureau’s own published values, not averages of states. The four regions are the official Census regions: statistical, not cultural.</dd></dl>'}
 
-  render();
+  setView('map');render();
   var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){renderTrend();if(st.a)renderDetail()},150)});
   return{state:st,render:render};
 };

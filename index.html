@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/dd.css">
-<script defer src="https://cdn.jsdelivr.net/npm/plotly.js@2.35.2/dist/plotly.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/plotly.js@2.35.2/dist/plotly-geo-assets.js"></script>
+<script defer src="assets/vendor/plotly-geo.min.js"></script>
+<script defer src="assets/vendor/geo-assets-slim.js"></script>
 <style>
 /* Geopolitical briefing room: near-black navy, olive land, strategic gold, alert red, intel teal. */
 :root{
@@ -213,7 +213,7 @@ body.present.shownotes #notes{display:block}
 </header>
 
 <main>
-<section class="sec hero" id="hero" data-sec="Opening" data-min="0.5" data-notes="State the research question out loud. Explain the evidence key: gold is Marshall, teal is a verified fact, violet is our own analysis. Every [S#] opens its source. Announce the route: a headline, Marshall's lens, American identity, back to the headline.">
+<section class="sec hero" id="hero" data-sec="Opening" data-notes="State the research question out loud. Explain the evidence key: gold is Marshall, teal is a verified fact, violet is our own analysis. Every [S#] opens its source. Announce the route: a headline, Marshall's lens, American identity, back to the headline.">
   <div class="wrap">
     <div class="row" style="align-items:center;gap:36px">
       <div class="col" style="flex:1 1 480px;gap:22px">
@@ -221,7 +221,7 @@ body.present.shownotes #notes{display:block}
         <h1>The United States</h1>
         <p class="sub">Geography · People · Power</p>
         <div class="q"><span class="k">Central research question</span><p>How does the geography of the United States shape its people, its history and its position as a global superpower?</p></div>
-        <div class="chips" style="gap:12px"><a class="btn" href="#act1">Open the briefing</a><button class="btn ghost" type="button" id="btnPresent2">Start presentation · 18 min</button></div>
+        <div class="chips" style="gap:12px"><a class="btn" href="#act1">Open the briefing</a><button class="btn ghost" type="button" id="btnPresent2">Start presentation</button></div>
         <p class="k" style="color:var(--soft)">Beltran Garcia San Miguel Luengo · Sara Gamez · Lucia Camacho</p>
         <div class="legend"><span>EVIDENCE KEY</span><span class="tag m">MARSHALL</span><span class="tag v">VERIFIED FACT</span><span class="tag a">OUR ANALYSIS</span><span>· click any <span class="src" style="cursor:default">S#</span> to see its source</span></div>
       </div>
@@ -232,19 +232,19 @@ body.present.shownotes #notes{display:block}
       </div>
     </div>
     <div class="tiles">
-      <a class="tile" href="#act1"><span>ACT I · 2 MIN</span><b>The Headline</b><em>Greenland, 22 Sep 2026: three open questions</em></a>
-      <a class="tile" href="#act2"><span>ACT II · 6 MIN</span><b>Marshall’s Lens</b><em>His theory, the land, the geography of power</em></a>
-      <a class="tile" href="#act3"><span>ACT III · 6 MIN</span><b>Identity</b><em>The people, Texas vs California, culture</em></a>
-      <a class="tile" href="#act4"><span>ACT IV · 4 MIN</span><b>Back to the Headline</b><em>The news re-read, the world, the answer</em></a>
+      <a class="tile" href="#act1"><span>ACT I</span><b>The Headline</b><em>Greenland, 22 Sep 2026: three open questions</em></a>
+      <a class="tile" href="#act2"><span>ACT II</span><b>Marshall’s Lens</b><em>His theory, the land, the geography of power</em></a>
+      <a class="tile" href="#act3"><span>ACT III</span><b>Identity</b><em>The people, Texas vs California, culture</em></a>
+      <a class="tile" href="#act4"><span>ACT IV</span><b>Back to the Headline</b><em>The news re-read, the world, the answer</em></a>
     </div>
   </div>
 </section>
 
 <!-- ================= ACT I ================= -->
-<section class="act" id="act1" data-sec="Act I · The Headline" data-min="2" data-notes="One headline only: Greenland. Read the facts from the card: two new defence areas, Pituffik expanded, veto on non-NATO presence and investment. Then ask the three questions and leave them open. Promise: we come back to this headline at the end.">
+<section class="act" id="act1" data-sec="Act I · The Headline" data-notes="One headline only: Greenland. Read the facts from the card: two new defence areas, Pituffik expanded, veto on non-NATO presence and investment. Then ask the three questions and leave them open. Promise: we come back to this headline at the end.">
   <div class="wrap">
     <span class="num">I</span>
-    <span class="eyebrow">Act I · 2 min</span>
+    <span class="eyebrow">Act I</span>
     <h2>The Headline</h2>
     <p class="lead">One piece of news from 2026 that only makes sense once you look at a map.</p>
     <div class="row" style="margin-top:12px">
@@ -282,10 +282,10 @@ body.present.shownotes #notes{display:block}
 </section>
 
 <!-- ================= ACT II ================= -->
-<section class="act" id="act2" data-sec="Act II · Marshall’s Lens" data-min="1.5" data-notes="Marshall's thesis in one sentence: the landscape constrains and enables leaders. For the US: a continent uniquely favourable to power, secured by shrewd territorial decisions. Walk the five steps quickly. Then the caveat: Marshall is a journalist; we test him, we do not just repeat him. Our position: geography is the stage, not the script.">
+<section class="act" id="act2" data-sec="Act II · Marshall’s Lens" data-notes="Marshall's thesis in one sentence: the landscape constrains and enables leaders. For the US: a continent uniquely favourable to power, secured by shrewd territorial decisions. Walk the five steps quickly. Then the caveat: Marshall is a journalist; we test him, we do not just repeat him. Our position: geography is the stage, not the script.">
   <div class="wrap">
     <span class="num">II</span>
-    <span class="eyebrow">Act II · 6 min · theoretical framework</span>
+    <span class="eyebrow">Act II · theoretical framework</span>
     <h2>Marshall’s Lens</h2>
     <p class="lead">Before answering the questions, the theory we use to read the map.</p>
     <div class="row" style="margin-top:12px;align-items:stretch">
@@ -313,10 +313,10 @@ body.present.shownotes #notes{display:block}
   </div>
 </section>
 
-<section class="sec" id="land" data-sec="II.1 The Land" data-min="2" data-notes="Marshall's three bands. Switch layers on one by one: relief (real Natural Earth polygons), rivers with flow toward New Orleans, arid West beyond the 100th meridian, USDA crop belts, energy, ports and corridors. Mississippi as the jewel in the crown is his claim; the navigable-miles superlative is unverified. Neighbours: Canada undefended, Mexico desert.">
+<section class="sec" id="land" data-sec="II.1 The Land" data-notes="Marshall's three bands. Switch layers on one by one: relief (real Natural Earth polygons), rivers with flow toward New Orleans, arid West beyond the 100th meridian, USDA crop belts, energy, ports and corridors. Mississippi as the jewel in the crown is his claim; the navigable-miles superlative is unverified. Neighbours: Canada undefended, Mexico desert.">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow">Act II · Part 1 · 2 min</span>
+      <span class="eyebrow">Act II · Part 1</span>
       <h2>The Land</h2>
       <p class="lead">Not only where the features are, but why they matter. Turn layers on, then pick a feature.</p>
     </div>
@@ -346,10 +346,10 @@ body.present.shownotes #notes{display:block}
   </div>
 </section>
 
-<section class="sec" id="power" data-sec="II.2 The Geography of Power" data-min="2.5" data-notes="Press Play: states fill in as they were acquired, and the historic routes animate: Wilderness Road, Lewis and Clark, Erie Canal, Oregon Trail, transcontinental railroad, Panama Canal. Then walk one chain: feature, advantage, consequence, impact. This answers questions 1 and 2 from the headline.">
+<section class="sec" id="power" data-sec="II.2 The Geography of Power" data-notes="Press Play: states fill in as they were acquired, and the historic routes animate: Wilderness Road, Lewis and Clark, Erie Canal, Oregon Trail, transcontinental railroad, Panama Canal. Then walk one chain: feature, advantage, consequence, impact. This answers questions 1 and 2 from the headline.">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow">Act II · Part 2 · 2.5 min · theoretical core</span>
+      <span class="eyebrow">Act II · Part 2 · theoretical core</span>
       <h2>The Geography of Power</h2>
       <p class="lead">How a continent was secured, crossed and joined to both oceans: territory and the routes that tied it together.</p>
     </div>
@@ -374,19 +374,19 @@ body.present.shownotes #notes{display:block}
 </section>
 
 <!-- ================= ACT III ================= -->
-<section class="act" id="act3" data-sec="Act III · Identity" data-min="0.5" data-notes="Transition: the same geography that built power also shaped the people. This answers question 3 from the headline.">
+<section class="act" id="act3" data-sec="Act III · Identity" data-notes="Transition: the same geography that built power also shaped the people. This answers question 3 from the headline.">
   <div class="wrap">
     <span class="num">III</span>
-    <span class="eyebrow">Act III · 6 min · human geography</span>
+    <span class="eyebrow">Act III · human geography</span>
     <h2>Identity</h2>
     <p class="lead">An abundant, isolated, enormous territory produced a society built on mobility, land and opportunity. It is diverse, and increasingly divided along geographic lines.</p>
   </div>
 </section>
 
-<section class="sec" id="people" data-sec="III.1 The American People" data-min="2.5" data-notes="Nation of ideas, frontier and individualism (Tocqueville, Turner). Open the data desk: click a state on the map to show its full profile, switch to Christian or 2024 vote to show that the map changes with the question. Insist the country is not homogeneous: six regions. Appalachia: same mountains, two stories. Then polarisation: the 2024 map is a geographic map; the 2026 midterm count as the latest data point (AP, check on the day).">
+<section class="sec" id="people" data-sec="III.1 The American People" data-notes="Nation of ideas, frontier and individualism (Tocqueville, Turner). Open the data desk: click a state on the map to show its full profile, switch to Christian or 2024 vote to show that the map changes with the question. Insist the country is not homogeneous: six regions. Appalachia: same mountains, two stories. Then polarisation: the 2024 map is a geographic map; the 2026 midterm count as the latest data point (AP, check on the day).">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow">Act III · Part 1 · 2.5 min</span>
+      <span class="eyebrow">Act III · Part 1</span>
       <h2>The American People</h2>
     </div>
     <div id="dd-people"></div>
@@ -446,10 +446,10 @@ body.present.shownotes #notes{display:block}
   </div>
 </section>
 
-<section class="sec" id="txca" data-sec="III.2 Two Americas" data-min="2" data-notes="Same Mexican past, same border, same Hispanic plurality. Different geography: Gulf oil vs Pacific innovation and scarce water. Open the dashboard: Texas and California are pre-selected; switch indicators (income, foreign-born, faith, 2024 vote) and read the “Beyond the survey” bars (GDP, population). Myth vs data: California's population fell 0.5% since 2020, but it is still the largest economy. They illustrate diversity, not the whole country.">
+<section class="sec" id="txca" data-sec="III.2 Two Americas" data-notes="Same Mexican past, same border, same Hispanic plurality. Different geography: Gulf oil vs Pacific innovation and scarce water. Open the dashboard: Texas and California are pre-selected; switch indicators (income, foreign-born, faith, 2024 vote) and read the “Beyond the survey” bars (GDP, population). Myth vs data: California's population fell 0.5% since 2020, but it is still the largest economy. They illustrate diversity, not the whole country.">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow">Act III · Part 2 · 2 min · regional case studies</span>
+      <span class="eyebrow">Act III · Part 2 · regional case studies</span>
       <h2>Two Americas</h2>
       <p class="lead">Same Mexican past, same border, same Hispanic plurality. Different geography, different model.</p>
     </div>
@@ -473,10 +473,10 @@ body.present.shownotes #notes{display:block}
   </div>
 </section>
 
-<section class="sec" id="culture" data-sec="III.3 Through Culture" data-min="1.5" data-notes="Three works, one insight each. Tocqueville: land and no neighbours, but mores mattered more. American Factory: the Rust Belt meets China. Nomadland: the frontier myth as economic necessity. Optional 20-second clip.">
+<section class="sec" id="culture" data-sec="III.3 Through Culture" data-notes="Three works, one insight each. Tocqueville: land and no neighbours, but mores mattered more. American Factory: the Rust Belt meets China. Nomadland: the frontier myth as economic necessity. Optional 20-second clip.">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow">Act III · Part 3 · 1.5 min</span>
+      <span class="eyebrow">Act III · Part 3</span>
       <h2>Through Culture</h2>
       <p class="lead">Three works, three windows onto how the land shapes the people.</p>
     </div>
@@ -486,20 +486,20 @@ body.present.shownotes #notes{display:block}
 </section>
 
 <!-- ================= ACT IV ================= -->
-<section class="act" id="act4" data-sec="Act IV · Back to the Headline" data-min="2" data-notes="Return to Greenland. Read each element of the deal through what we have learned: exclusion clause = Monroe; bases = concrete; purchase pressure = Louisiana and Alaska; mining veto = Arctic resources; style = frontier and commercial mentality. Then the world map: the same logic with Canada, Mexico, China, NATO, Indo-Pacific, Middle East.">
+<section class="act" id="act4" data-sec="Act IV · Back to the Headline" data-notes="Return to Greenland. Read each element of the deal through what we have learned: exclusion clause = Monroe; bases = concrete; purchase pressure = Louisiana and Alaska; mining veto = Arctic resources; style = frontier and commercial mentality. Then the world map: the same logic with Canada, Mexico, China, NATO, Indo-Pacific, Middle East.">
   <div class="wrap">
     <span class="num">IV</span>
-    <span class="eyebrow">Act IV · 4 min · conclusion</span>
+    <span class="eyebrow">Act IV · conclusion</span>
     <h2>Back to the Headline</h2>
     <p class="lead">The same news, read again with Marshall’s lens and with what we now know about the people.</p>
     <div class="lens" id="lens" style="margin-top:12px"></div>
   </div>
 </section>
 
-<section class="sec" id="world" data-sec="IV.1 The Headline in its World" data-min="1" data-notes="Greenland is one node in a global pattern. Pick a relationship: geography, history, economy, strategy, then the 2026 status. Switch to the globe for the chokepoints.">
+<section class="sec" id="world" data-sec="IV.1 The Headline in its World" data-notes="Greenland is one node in a global pattern. Pick a relationship: geography, history, economy, strategy, then the 2026 status. Switch to the globe for the chokepoints.">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow">Act IV · Part 1 · 1 min</span>
+      <span class="eyebrow">Act IV · Part 1</span>
       <h2>The Headline in its World</h2>
       <p class="lead">Greenland is not an exception. Proximity, borders, sea lanes and chokepoints shape every US relationship.</p>
     </div>
@@ -520,10 +520,10 @@ body.present.shownotes #notes{display:block}
   </div>
 </section>
 
-<section class="sec" id="critique" data-sec="IV.2 Geography did not sign the deal" data-min="0.5" data-notes="Critical counterpoint: the deal was decided by diplomacy and alliance politics; parliaments must approve; sovereignty unchanged. Marshall holds up on energy and military weight; he needs qualification on institutions and dispossession. Hormuz 2026: net exporter does not mean immune.">
+<section class="sec" id="critique" data-sec="IV.2 Geography did not sign the deal" data-notes="Critical counterpoint: the deal was decided by diplomacy and alliance politics; parliaments must approve; sovereignty unchanged. Marshall holds up on energy and military weight; he needs qualification on institutions and dispossession. Hormuz 2026: net exporter does not mean immune.">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow">Act IV · Part 2 · 0.5 min · critical counterpoint</span>
+      <span class="eyebrow">Act IV · Part 2 · critical counterpoint</span>
       <h2>But Geography Did Not Sign the Deal</h2>
       <p class="lead">Greenland’s 2026 outcome was decided by diplomacy, alliance politics and parliaments, not by geography alone.</p>
     </div>
@@ -535,10 +535,10 @@ body.present.shownotes #notes{display:block}
   </div>
 </section>
 
-<section class="sec" id="future" data-sec="IV.3 The Future and the Answer" data-min="1.5" data-notes="Advantages that remain vs challenges that are mostly political and human. Pick a scenario and name its signposts. Read the answer: history, people, power. Close with the line, and look back at the headline.">
+<section class="sec" id="future" data-sec="IV.3 The Future and the Answer" data-notes="Advantages that remain vs challenges that are mostly political and human. Pick a scenario and name its signposts. Read the answer: history, people, power. Close with the line, and look back at the headline.">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow">Act IV · Part 3 · 1.5 min</span>
+      <span class="eyebrow">Act IV · Part 3</span>
       <h2>The Future and the Answer</h2>
     </div>
     <div class="row" style="align-items:stretch">
@@ -561,7 +561,7 @@ body.present.shownotes #notes{display:block}
   </div>
 </section>
 
-<section class="sec" id="bibliography" data-sec="Sources" data-min="0" data-notes="Only if asked: every [S#] in the site links here.">
+<section class="sec" id="bibliography" data-sec="Sources" data-notes="Only if asked: every [S#] in the site links here.">
   <div class="wrap">
     <div class="head"><span class="eyebrow">Sources · accessed November 2026</span><h2>Bibliography</h2><p class="lead">Every [S#] in the site opens its entry. Theoretical works are listed at the end.</p></div>
     <div class="bib" id="bib"></div>
@@ -574,9 +574,8 @@ body.present.shownotes #notes{display:block}
 <aside id="srcPanel" role="dialog" aria-label="Source" hidden><button class="x" type="button" aria-label="Close source">×</button><span class="id" id="srcId"></span><p id="srcText"></p><a id="srcLink" target="_blank" rel="noopener"></a><a id="srcBib" href="#bibliography" style="font:500 12px var(--mono);color:var(--mut)">See full bibliography ↓</a></aside>
 <div id="notes" role="dialog" aria-label="Presenter notes"><span class="k">Presenter notes · <span id="notesSec"></span></span><ul id="notesList"></ul></div>
 <div id="hud" aria-label="Presentation controls">
-  <span><b id="hudSec">Opening</b></span><span>Suggested <b id="hudMin">0.5</b> min</span>
+  <span><b id="hudSec">Opening</b></span><span><b id="hudPos">1</b> / <b id="hudTot">1</b></span>
   <span class="meter"><i id="hudBar"></i></span>
-  <span>Total <b id="hudTime">0:00</b> / 18:00</span>
   <button type="button" id="hPrev">← Prev</button><button type="button" id="hNext">Next →</button><button type="button" id="hNotes">N · Notes</button><button type="button" id="hExit">Esc · Exit</button>
 </div>
 
@@ -741,13 +740,15 @@ function heroGlobe(){
   PARTNERS.forEach(function(p){var g=gcPts(DC,[p[1],p[2]],60);data.push(line(g.map(function(q){return q[1]}),g.map(function(q){return q[0]}),1.6,'rgba(179,51,42,.85)'))});
   data.push(pts(PARTNERS.map(function(p){return [p[1],p[2],p[0],'top right']}),{size:6,ts:10,color:C.teal,fill:C.teal}));
   data.push(pts([[DC[0],DC[1],'Washington','bottom left']],{size:8,color:C.ink,fill:C.ink,ts:10}));
-  var g=geo({projection:{type:'orthographic',rotation:{lon:-80,lat:28,roll:0}},lonaxis:grid(),lataxis:grid()});
+  /* full lon/lat ranges centred on the rotation keep the whole globe visible (Plotly clips orthographic maps to the axis ranges) */
+  var lo=grid(),la=grid();lo.range=[-260,100];la.range=[-90,90];
+  var g=geo({projection:{type:'orthographic',rotation:{lon:-80,lat:28,roll:0},scale:0.92},center:{lon:-80,lat:28},lonaxis:lo,lataxis:la});
   draw('m-hero',data,lay(g,{dragmode:'pan'}));
   var el=$('#m-hero'),rot=-80,drag=false,last=0;
   el.addEventListener('pointerdown',function(){drag=true});window.addEventListener('pointerup',function(){drag=false});
   el.on&&el.on('plotly_relayout',function(ev){var r=ev['geo.projection.rotation'];if(r&&typeof r.lon==='number')rot=r.lon;else if(typeof ev['geo.projection.rotation.lon']==='number')rot=ev['geo.projection.rotation.lon']});
   if(reduce)return;
-  (function tick(now){requestAnimationFrame(tick);if(!vis.hero||drag||now-last<80)return;last=now;rot=(rot+0.45)%360;Plotly.relayout('m-hero',{'geo.projection.rotation.lon':rot})})(0);
+  (function tick(now){requestAnimationFrame(tick);if(!vis.hero||drag||now-last<80)return;last=now;rot=((rot+0.45+540)%360)-180;Plotly.relayout('m-hero',{'geo.projection.rotation.lon':rot,'geo.center.lon':rot,'geo.lonaxis.range':[rot-180,rot+180]})})(0);
 }
 
 /* ================= ACT I · GREENLAND ================= */
@@ -1022,17 +1023,15 @@ var secs=$$('section[data-sec]').filter(function(s){return s.id!=='bibliography'
 function curIdx(){var y=window.scrollY+window.innerHeight*0.35,best=0;secs.forEach(function(s,i){if(s.offsetTop<=y)best=i});return best}
 function hud(){
   var s=secs[curIdx()];
-  $('#hudSec').textContent=s.dataset.sec;$('#hudMin').textContent=s.dataset.min;
+  var ix=curIdx();$('#hudSec').textContent=s.dataset.sec;$('#hudPos').textContent=ix+1;$('#hudTot').textContent=secs.length;
   var n=(s.dataset.notes||'').split(/(?<=\.)\s+/).filter(Boolean);
   $('#notesSec').textContent=s.dataset.sec;$('#notesList').innerHTML=n.map(function(x){return '<li>'+x+'</li>'}).join('');
-  var sec=Math.floor((Date.now()-t0)/1000),m=Math.floor(sec/60),r=sec%60;
-  var el=$('#hudTime');el.textContent=m+':'+(r<10?'0':'')+r;el.className=sec>1080?'over':'';
-  $('#hudBar').style.width=Math.min(100,sec/1080*100)+'%';
+  $('#hudBar').style.width=((ix+1)/secs.length*100)+'%';
 }
 function go(d){var i=Math.max(0,Math.min(secs.length-1,curIdx()+d));secs[i].scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})}
 function present(on){
   pres=on;document.body.classList.toggle('present',on);
-  if(on){t0=Date.now();try{var p=document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();if(p&&p.catch)p.catch(function(){})}catch(e){}secs[0].scrollIntoView();tick=setInterval(hud,500);hud()}
+  if(on){try{var p=document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();if(p&&p.catch)p.catch(function(){})}catch(e){}secs[0].scrollIntoView();tick=setInterval(hud,400);hud()}
   else{clearInterval(tick);document.body.classList.remove('shownotes');try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}
   setTimeout(function(){window.dispatchEvent(new Event('resize'))},60);
 }
