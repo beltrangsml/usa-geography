@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/dd.css">
 <script defer src="https://cdn.jsdelivr.net/npm/plotly.js@2.35.2/dist/plotly.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/plotly.js@2.35.2/dist/plotly-geo-assets.js"></script>
 <style>
@@ -382,13 +383,13 @@ body.present.shownotes #notes{display:block}
   </div>
 </section>
 
-<section class="sec" id="people" data-sec="III.1 The American People" data-min="2.5" data-notes="Nation of ideas, frontier and individualism (Tocqueville, Turner). Show the data and insist the country is not homogeneous: six regions. Appalachia: same mountains, two stories. Then polarisation: the 2024 map is a geographic map; the 2026 midterm count as the latest data point (AP, check on the day).">
+<section class="sec" id="people" data-sec="III.1 The American People" data-min="2.5" data-notes="Nation of ideas, frontier and individualism (Tocqueville, Turner). Open the data desk: click a state on the map to show its full profile, switch to Christian or 2024 vote to show that the map changes with the question. Insist the country is not homogeneous: six regions. Appalachia: same mountains, two stories. Then polarisation: the 2024 map is a geographic map; the 2026 midterm count as the latest data point (AP, check on the day).">
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Act III · Part 1 · 2.5 min</span>
       <h2>The American People</h2>
     </div>
-    <div class="grid g6" id="kpis"></div>
+    <div id="dd-people"></div>
     <div class="grid g4">
       <div class="card"><h3>A nation of ideas</h3><p>Civic, not ethnic: Declaration, Constitution, flag. 2026 is the 250th anniversary. Marshall: Americans identify with their Union far more than Europeans with the EU.</p><span class="tag m">MARSHALL · OUR ANALYSIS</span></div>
       <div class="card"><h3>Frontier and individualism</h3><p>Tocqueville (1835) and Turner’s frontier thesis (1893): free land in the West bred self-reliance and democracy.</p><span class="tag a">OUR ANALYSIS</span></div>
@@ -445,7 +446,7 @@ body.present.shownotes #notes{display:block}
   </div>
 </section>
 
-<section class="sec" id="txca" data-sec="III.2 Two Americas" data-min="2" data-notes="Same Mexican past, same border, same Hispanic plurality. Different geography: Gulf oil vs Pacific innovation and scarce water. Click through the metrics. Myth vs data: California's population fell 0.5% since 2020, but it is still the largest economy. They illustrate diversity, not the whole country.">
+<section class="sec" id="txca" data-sec="III.2 Two Americas" data-min="2" data-notes="Same Mexican past, same border, same Hispanic plurality. Different geography: Gulf oil vs Pacific innovation and scarce water. Open the dashboard: Texas and California are pre-selected; switch indicators (income, foreign-born, faith, 2024 vote) and read the “Beyond the survey” bars (GDP, population). Myth vs data: California's population fell 0.5% since 2020, but it is still the largest economy. They illustrate diversity, not the whole country.">
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Act III · Part 2 · 2 min · regional case studies</span>
@@ -459,14 +460,6 @@ body.present.shownotes #notes{display:block}
         <div class="mapbox" id="b-tx"><div class="map sm" id="m-tx" role="img" aria-label="Map of Texas with the Permian Basin, Gulf ports and the Laredo crossing"></div><div class="fail">Map unavailable offline.</div></div>
         <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:var(--soft)"><li>Republic 1836–45; joined the Union in 1845</li><li>~43% of US crude (2025) [S25] · Permian Basin</li><li>No state income tax · own grid (ERCOT)</li><li>2024: Trump 56.1%, Harris 42.5% [S57]</li></ul>
       </article>
-      <section class="col panel" style="flex:1 1 300px;gap:18px" aria-label="Comparison">
-        <div class="chips" id="metrics" role="group" aria-label="Metric"></div>
-        <span style="font:700 28px var(--display);" id="mName"></span>
-        <div class="bars"><div class="l"><span style="color:var(--gold2)">Texas</span><span id="mTx"></span></div><div class="bar"><i id="bTx" style="background:var(--gold)"></i></div></div>
-        <div class="bars"><div class="l"><span style="color:#2E4A22">California</span><span id="mCa"></span></div><div class="bar"><i id="bCa" style="background:var(--blue)"></i></div></div>
-        <span class="k" id="mSrc"></span>
-        <div class="card" style="border-style:dashed;margin-top:auto"><span class="k" style="color:#A3261E">Myth vs data</span><p style="font-size:15px;color:var(--ink)">“Everyone is leaving California.” Population −0.5% since 2020 [S7], yet still the largest state economy at $4.25 tn [S9].</p></div>
-      </section>
       <article class="col" style="flex:1 1 340px;padding:20px;border-radius:3px;border:1px solid #A9B88F;background:linear-gradient(200deg,rgba(79,107,46,.14),var(--panel) 55%)">
         <span class="k" style="color:#2E4A22">Pacific · tech · scarce water</span>
         <h3 style="font-size:52px;">California</h3>
@@ -474,6 +467,8 @@ body.present.shownotes #notes{display:block}
         <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:var(--soft)"><li>Mexican cession 1848 · Gold Rush · state 1850</li><li>Silicon Valley, Hollywood, $61.2 bn farm receipts [S26]</li><li>Colorado River: federal framework 2027–36 [S27]</li><li>2024: carried by Harris · 54 electoral votes [S35]</li></ul>
       </article>
     </div>
+    <div id="dd-txca"></div>
+    <div class="card" style="border-style:dashed"><span class="k" style="color:#A3261E">Myth vs data</span><p style="font-size:15px;color:var(--ink)">“Everyone is leaving California.” Population −0.5% since 2020 [S7], yet still the largest state economy at $4.25 tn [S9]. In the dashboard above: Texas grew +7.9% in the ACS between 2019 and 2024, California −0.2%.</p></div>
     <div class="note-a"><span class="k">Our analysis</span>Geography did not determine their politics, but it shaped the economic interests on which each political culture was built. Marshall’s thesis at the regional scale.</div>
   </div>
 </section>
@@ -599,6 +594,9 @@ RV:{"Mississippi":[[[-89.3,29.2],[-90,29.7],[-90,29.8],[-89.9,29.9],[-90.8,30],[
 "Hudson":[[[-74.1,44.1],[-74.2,43.9],[-73.9,43.7],[-73.8,43.3],[-73.6,43.2],[-73.8,42.4],[-73.9,42],[-74,41.2]]]}};
 
 </script>
+<script src="assets/dd-data.js"></script>
+<script src="assets/dd-geo.js"></script>
+<script src="assets/dd.js"></script>
 <script>
 (function(){
 'use strict';
@@ -653,7 +651,11 @@ S50:['Coolidge, C. (17 Jan 1925). “The Press Under a Free Government”, addre
 S54:['USDA National Agricultural Statistics Service (10 Jan 2025). Crop Production 2024 Summary: corn for grain by state. Top five: Iowa (2.63 bn bu), Illinois (2.31 bn), Nebraska (1.80 bn), Minnesota, Indiana.','https://www.nass.usda.gov/Publications/'],
 S55:['USDA National Agricultural Statistics Service (Sep 2025). Small Grains 2025 Summary: all wheat by state. Top five: Kansas (346.8 m bu), North Dakota (334.1 m), Montana (181.7 m), Washington (141.5 m), Idaho (106.6 m).','https://www.nass.usda.gov/Publications/'],
 S56:['Natural Earth (public domain). 1:50m Physical Vectors: geography regions (polygons) and rivers and lake centerlines. Simplified for the web.','https://www.naturalearthdata.com/downloads/50m-physical-vectors/'],
-S57:['The American Presidency Project, UC Santa Barbara. 2024 presidential election results: Texas, Trump 56.14%, Harris 42.46% (certified totals).','https://www.presidency.ucsb.edu/statistics/elections/2024']
+S57:['The American Presidency Project, UC Santa Barbara. 2024 presidential election results: Texas, Trump 56.14%, Harris 42.46% (certified totals).','https://www.presidency.ucsb.edu/statistics/elections/2024'],
+S79:['U.S. Census Bureau. American Community Survey 1-year estimates, 2019, 2023 and 2024: tables B01003 (population), B05002 (place of birth), B03003 (Hispanic origin), B19013 (median household income), B17001 (poverty), B15003 (education), B01002 (median age). States, census regions and nation, via the Census Data API. Retrieved 20 Nov 2026. No standard 1-year release exists for 2020.','https://www.census.gov/programs-surveys/acs/data.html'],
+S80:['MIT Election Data and Science Lab (2017, version 10.1, 2026). U.S. President 1976–2024. Harvard Dataverse, doi:10.7910/DVN/42MVDX (CC0), compiled from certified state results. Retrieved 20 Nov 2026. National 2024 totals: Trump 77,302,580 (49.7%), Harris 75,017,615 (48.3%). Texas matches [S57].','https://doi.org/10.7910/DVN/42MVDX'],
+S81:['Pew Research Center (2025). 2023–24 U.S. Religious Landscape Study Interactive Database, state profiles (36,908 adults, 17 Jul 2023 to 4 Mar 2024). doi:10.58094/3zs9-jc14. Retrieved 20 Nov 2026; New Hampshire and Utah checked by hand against the state pages.','https://www.pewresearch.org/religious-landscape-study/'],
+S82:['State boundaries: U.S. Census Bureau cartographic boundary file (simplified), as distributed in the PublicaMundi MappingAPI sample data (GitHub). Projected by us to Albers equal-area (lower 48), with Alaska and Hawaii as insets not to scale.','https://github.com/PublicaMundi/MappingAPI']
 };
 var THEORY=['Acemoglu, D. & Robinson, J. A. (2012). Why Nations Fail. New York: Crown.','Kaplan, R. D. (2012). The Revenge of Geography. New York: Random House.','Zeihan, P. (2014). The Accidental Superpower. New York: Twelve.','Turner, F. J. (1893). “The Significance of the Frontier in American History”. American Historical Association.','Woodard, C. (2011). American Nations. New York: Viking.','Adams, J. T. (1931). The Epic of America. Boston: Little, Brown.','Tocqueville, A. de (1835/1840). Democracy in America.','Bruder, J. (2017). Nomadland. New York: W. W. Norton. · Films: American Factory (2019), Nomadland (2020).'];
 
@@ -902,14 +904,16 @@ function renderChain(){
 function powerInit(){var box=$('#powerFeats');PW.forEach(function(p,i){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=p[0];b.addEventListener('click',function(){pwi=i;renderChain()});box.appendChild(b)});renderChain()}
 
 /* ================= III.1 PEOPLE ================= */
-var KPI=[[341.8,1,'',' M','Population, July 2025','S7'],[20.0,1,'','%','Hispanic or Latino','S7'],[15.4,1,'','%','Foreign-born (Jun 2025), first fall since the 1960s','S11'],[62,0,'','%','Christian adults (78% in 2007)','S10'],[58,0,'','%','“Extremely/very proud”, record low','S12'],[0.5,1,'+','%','Growth 2024–25, slowest since COVID','S31']];
 var REG=[['Northeast','Harbours, rocky soils','Education, finance; Democratic-leaning'],['South','Warm, fertile, river plantations','Legacy of slavery; evangelical; Republican-leaning'],['Midwest','Plains, Great Lakes','Farming, Rust Belt; swing states'],['West','Arid, mountains, federal land','Frontier libertarianism, water politics, tech'],['South-west','Desert, former Mexican lands','Bilingual, bicultural'],['Appalachia','Mountains, hollows, coal','Isolation, opioid crisis; Democratic to Republican']];
 function peopleInit(){
-  $('#kpis').innerHTML=KPI.map(function(k){return '<div class="card"><span class="big" data-n="'+k[0]+'" data-d="'+k[1]+'" data-p="'+k[2]+'" data-s="'+k[3]+'">'+k[2]+k[0].toFixed(k[1])+k[3]+'</span><span style="font-size:14px;line-height:1.4">'+k[4]+'</span><span class="k">['+k[5]+']</span></div>'}).join('');
-  cite($('#kpis'));
   $('#regions').innerHTML=REG.map(function(r){return '<div class="card" style="background:var(--panel2)"><span style="font:600 18px var(--display);color:var(--gold2)">'+r[0]+'</span><span style="font-size:13px;color:var(--mut)">'+r[1]+'</span><span style="font-size:14px">'+r[2]+'</span></div>'}).join('');
-  var done=false;
-  new IntersectionObserver(function(es,o){if(es[0].isIntersecting&&!done){done=true;o.disconnect();if(reduce)return;$$('#kpis .big').forEach(function(el){var n=+el.dataset.n,d=+el.dataset.d,t0=performance.now();(function f(t){var q=Math.min(1,(t-t0)/1100),e=1-Math.pow(1-q,3);el.textContent=el.dataset.p+(n*e).toFixed(d)+el.dataset.s;if(q<1)requestAnimationFrame(f)})(t0)})}},{threshold:0.3}).observe($('#kpis'));
+  if(window.DataDesk&&window.DD_DATA&&window.DD_GEO){
+    var CITES={acs:'[S79]',vote:'[S80]',pew:'[S81]',geo:'[S82]',pep:'[S7]',fbpew:'[S11]'};
+    DataDesk($('#dd-people'),{eyebrow:'Data desk · The American People',title:'Who Americans are, state by state',desc:'Origins, income, education, faith and the 2024 vote for the 50 states and DC. The country is not homogeneous: click any state to see where it stands.',metric:'fb',cites:CITES,onRender:cite,
+      pulse:[['341.8 M','people, July 2025','[S7]'],['15.4%','foreign-born, June 2025','[S11]'],['62%','Christian adults (78% in 2007)','[S10]'],['58%','“extremely or very proud”, a record low','[S12]'],['+0.5%','growth 2024–25, slowest since COVID','[S31]']]});
+    DataDesk($('#dd-txca'),{eyebrow:'Data desk · Two Americas',title:'Texas and California, side by side',desc:'Same Mexican past, same border, same Hispanic plurality. The same indicators reveal two different models. Swap either state to test the comparison.',pair:['TX','CA'],metric:'inc',cites:CITES,onRender:cite,
+      extra:[['Population, July 2025',31.71,39.36,'31.7 M','39.4 M','Census Population Estimates, Vintage 2025 [S7]'],['GDP 2025',2.904,4.251,'$2.90 tn','$4.25 tn','Bureau of Economic Analysis [S9]'],['Population change 2020–25',8.8,-0.5,'+8.8%','−0.5%','Census Population Estimates, Vintage 2025 [S7]']]});
+  }else{['#dd-people','#dd-txca'].forEach(function(s){$(s).innerHTML='<div class="card"><p>The data dashboard could not load. Check that the assets folder was uploaded with index.html.</p></div>'})}
   setEra(2026);
 }
 function setEra(y){
@@ -935,15 +939,6 @@ function voteMap(){
 }
 
 /* ================= III.2 TX/CA ================= */
-var MET=[['Population 2025',31.71,39.36,'31.7 M','39.4 M','[S7]'],['GDP 2025',2.904,4.251,'$2.90 tn','$4.25 tn','[S9]'],['Change 2020–25',8.8,0.5,'+8.8%','−0.5%','[S7]'],['Foreign-born',17.6,27.0,'17.6%','27.0%','ACS 2020–24 [S7]'],['Median rent',1403,2036,'$1,403','$2,036','ACS 2020–24 [S7]'],['Hispanic share',40.3,40.8,'40.3%','40.8%','[S7]']];
-var mi=1;
-function renderMet(){
-  var m=MET[mi],mx=Math.max(m[1],m[2]);
-  $('#mName').textContent=m[0];$('#mTx').textContent=m[3];$('#mCa').textContent=m[4];$('#mSrc').textContent='Source '+m[5];cite($('#mSrc'));
-  $('#bTx').style.width=Math.round(m[1]/mx*100)+'%';$('#bCa').style.width=Math.round(m[2]/mx*100)+'%';
-  $$('#metrics button').forEach(function(b,i){b.setAttribute('aria-pressed',String(i===mi))});
-}
-function metInit(){var box=$('#metrics');MET.forEach(function(m,i){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=m[0];b.addEventListener('click',function(){mi=i;renderMet()});box.appendChild(b)});renderMet()}
 function stateMap(id,code,col,fill,extra,lon,lat){
   draw(id,[states([code],[1],flat(fill),[ST[code]],0,1,col)].concat(extra),lay(naGeo(lon,lat,{showrivers:true,rivercolor:'#5F7A55',riverwidth:1.1}),{}));
 }
@@ -1065,7 +1060,7 @@ function onScroll(){
 window.addEventListener('scroll',onScroll,{passive:true});
 
 /* ================= BOOT ================= */
-buildBib();landInit();featInit();acqInit();powerInit();peopleInit();metInit();cultureInit();lensInit();worldInit();futureInit();cite(document.querySelector('main'));onScroll();
+buildBib();landInit();featInit();acqInit();powerInit();peopleInit();cultureInit();lensInit();worldInit();futureInit();cite(document.querySelector('main'));onScroll();
 function boot(){
   OK=!!(window.Plotly&&window.PlotlyGeoAssets&&window.PlotlyGeoAssets.topojson);
   if(!OK){['b-hero','b-g','b-land','b-acq','b-app','b-vote','b-tx','b-ca','b-world'].forEach(mapFail);return}
