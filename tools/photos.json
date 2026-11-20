@@ -1277,12 +1277,9 @@
 },
 {
 "k": "ppl-life",
-"cap": "Suburban America: cheap land and the car shaped everyday life",
-"titles": [
-"Levittown, New York",
-"Levittown, Pennsylvania"
-],
-"alias": []
+"cap": "Suburban sprawl in Chandler, Arizona: cheap land and the car shaped everyday life",
+"alias": [],
+"file": "Chandler Arizona aerial.jpg"
 },
 {
 "k": "ppl-politics",
