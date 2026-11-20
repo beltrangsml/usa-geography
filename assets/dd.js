@@ -47,7 +47,7 @@ function ico(k){return '<svg viewBox="0 0 16 16" fill="none" stroke="currentColo
 window.DataDesk=function(root,cfg){
   cfg=cfg||{};var uid=root.id||('dd'+Math.random().toString(36).slice(2,7));
   var st={year:'2024',cmp:'2019',reg:'ALL',metric:cfg.metric||'fb',a:cfg.pair?cfg.pair[0]:null,b:cfg.pair?cfg.pair[1]:null,q:'',sort:null,dir:-1,view:'map'};
-  var VIEWS=[['map','Map & profile','map'],['trend','Trends','trend'],['rank','Ranking','rank'],['table','Table','table']].concat(cfg.extra?[['extra','Economy','coin']]:[]).filter(function(v){return !cfg.views||cfg.views.indexOf(v[0])>=0});if(cfg.views){root.classList.add('dd-compact');if(cfg.pair)VIEWS[0]=['map','Comparison','map']}
+  var VIEWS=[['map','Map & profile','map'],['trend','Trends','trend'],['rank','Ranking','rank'],['table','Table','table']].concat(cfg.extra?[['extra',cfg.extraLabel||'Economy','coin']]:[]).filter(function(v){return !cfg.views||cfg.views.indexOf(v[0])>=0});if(cfg.views){root.classList.add('dd-compact');if(cfg.pair)VIEWS[0]=['map','Comparison','map']}
   var codes=Object.keys(D.states).sort(function(x,y){return D.states[x].name<D.states[y].name?-1:1});
   root.classList.add('dd');
   root.innerHTML=
@@ -102,6 +102,7 @@ window.DataDesk=function(root,cfg){
   root.querySelector('[data-act=info]').addEventListener('click',function(){P.mbody.innerHTML=methodHTML();if(cfg.onRender)cfg.onRender(P.mbody);P.modal.classList.add('on');P.modal.querySelector('.x').focus()});
   P.modal.addEventListener('click',function(e){if(e.target===P.modal||e.target.closest('.x'))P.modal.classList.remove('on')});
   root.addEventListener('keydown',function(e){if(e.key==='Escape')P.modal.classList.remove('on')});
+  root._dd={pair:function(a,b,m){st.a=a;st.b=b;if(m)st.metric=m;setView('map');render()}};
   function select(c,ev){if(ev&&(ev.shiftKey||ev.metaKey||ev.ctrlKey)&&st.a&&c!==st.a)st.b=c;else if(c===st.a){st.a=st.b;st.b=null}else if(c===st.b){st.b=null}else st.a=c;if(st.view==='rank'||st.view==='table')setView('map');render();
     if(ev&&ev.type==='click'&&innerWidth<1000)P.det.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'})}
 
@@ -241,10 +242,10 @@ window.DataDesk=function(root,cfg){
       (st.metric==='vote'?'<div class="dd-sub">2024 vote by census region <span>MIT Election Lab</span></div>'+Object.keys(REG).map(function(r){return '<div class="dd-sub" style="margin:6px 0 2px;border:0">'+REG[r]+'</div>'+stack(voteParts(D.vote[r]))}).join(''):'')}
 
   // ---------- extra panel (pair mode: figures outside the ACS)
-  function renderExtra(){var a=st.a,b=st.b,ok=a&&b&&a===cfg.pair[0]&&b===cfg.pair[1];
-    P.extra.innerHTML='<div class="dd-chead"><div><h4>Beyond the survey · '+(ok?cfg.pair.join(' vs '):cfg.pair.join(' vs '))+'</h4><p>Official economic and population figures used elsewhere on this site. Always '+cfg.pair.join(' and ')+', whatever is selected above.</p></div></div><div class="dd-xgrid">'+
+  function renderExtra(){var XP=cfg.extraPair||XP,a=st.a,b=st.b,ok=a&&b&&a===XP[0]&&b===XP[1];
+    P.extra.innerHTML='<div class="dd-chead"><div><h4>Beyond the survey · '+(ok?XP.join(' vs '):XP.join(' vs '))+'</h4><p>Official economic and population figures used elsewhere on this site. Always '+XP.join(' and ')+', whatever is selected above.</p></div></div><div class="dd-xgrid">'+
     cfg.extra.map(function(x){var mx=Math.max(Math.abs(x[1]),Math.abs(x[2]))||1;return '<div class="x"><span class="cap">'+esc(x[0])+'</span>'+
-      [[cfg.pair[0],x[1],x[3],A_COL],[cfg.pair[1],x[2],x[4],B_COL]].map(function(r){return '<div class="hb"><span class="lab">'+r[0]+'</span><span class="bar"><i style="width:'+(Math.abs(r[1])/mx*100).toFixed(1)+'%;background:'+r[3]+'"></i></span><span class="num">'+esc(r[2])+'</span></div>'}).join('')+'<span class="srcl">'+esc(x[5])+'</span></div>'}).join('')+'</div>'}
+      [[XP[0],x[1],x[3],A_COL],[XP[1],x[2],x[4],B_COL]].map(function(r){return '<div class="hb"><span class="lab">'+r[0]+'</span><span class="bar"><i style="width:'+(Math.abs(r[1])/mx*100).toFixed(1)+'%;background:'+r[3]+'"></i></span><span class="num">'+esc(r[2])+'</span></div>'}).join('')+'<span class="srcl">'+esc(x[5])+'</span></div>'}).join('')+'</div>'}
 
   // ---------- trend chart (regions or selected states)
   function renderTrend(){if(st.view!=='trend')return;var k=M[st.metric].fixed?null:st.metric;
