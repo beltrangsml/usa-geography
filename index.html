@@ -198,10 +198,70 @@ body.present.shownotes #notes{display:block}
   .map{height:400px}.map.tall{height:440px}
   .nav{padding:8px 16px}.links{display:none}
 }
+
+/* ===== 20 Nov · interface upgrade ===== */
+/* curved left rail: part numbers only, opens on hover */
+#rail{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:70;width:86px;height:min(560px,72vh);padding:0;display:flex;flex-direction:column;justify-content:center;gap:2px;
+  background:linear-gradient(180deg,#241A14,#1F1712);border-radius:0 26px 26px 0;box-shadow:6px 0 30px -12px rgba(31,23,18,.6);
+  -webkit-mask:radial-gradient(circle 520px at calc(100% + 498px) 50%,transparent 99.6%,#000 100%);mask:radial-gradient(circle 520px at calc(100% + 498px) 50%,transparent 99.6%,#000 100%);
+  transition:width .35s cubic-bezier(.2,.8,.2,1)}
+#rail:hover,#rail:focus-within{width:250px}
+#rail a{position:relative;display:flex;align-items:center;gap:14px;height:52px;padding-left:calc(26px + var(--dx,0px));text-decoration:none;color:#BFAE98;white-space:nowrap;transition:color .2s}
+#rail a b{flex:none;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;font:italic 700 22px/1 var(--display);color:#E0C9A8;transition:color .2s,transform .2s}
+#rail a span{font:500 12.5px var(--mono);letter-spacing:.06em;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .25s}
+#rail:hover a span,#rail:focus-within a span{opacity:1;transform:none}
+#rail a:hover,#rail a.on{color:#fff}
+#rail a.on b{color:#fff;background:var(--red);transform:scale(1.06)}
+#rail .rp{position:absolute;left:8px;top:28px;bottom:28px;width:2px;border-radius:2px;background:rgba(224,201,168,.15)}
+#rail .rp i{display:block;width:100%;height:0;border-radius:2px;background:#E0A56C}
+@media (min-width:1001px){.nav .links{display:none}main,footer{padding-left:86px}}
+@media (max-width:1000px){
+  #rail{top:auto;bottom:10px;left:50%;transform:translateX(-50%);width:auto;height:52px;flex-direction:row;border-radius:26px;padding:0 6px;-webkit-mask:none;mask:none}
+  #rail:hover,#rail:focus-within{width:auto}#rail a{height:52px;padding:0 6px!important;gap:0}#rail a span,#rail .rp{display:none}
+  body.present #hud{bottom:62px}
+}
+/* flag inside the title and the part numbers */
+.flagtext{background:url("assets/flag.svg") 0 0/115% 100% no-repeat;-webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-stroke:1.4px #1F1712;width:fit-content;animation:flagwave 9s ease-in-out infinite alternate}
+.act .num.flagtext{-webkit-text-stroke:1.6px #1F1712;opacity:1}
+@keyframes flagwave{from{background-position:0% 40%}to{background-position:100% 60%}}
+/* sources window: what it is, what we use it for, where it appears */
+#srcPanel .shead{display:flex;gap:12px;align-items:center;padding-right:36px}
+#srcPanel .ico{flex:none;width:56px;height:56px;border-radius:10px;display:grid;place-items:center;background:#1F1712;color:#E0C9A8}
+#srcPanel .ico svg{width:30px;height:30px}
+#srcPanel .ty{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gold2)}
+#srcPanel .what{font-size:13px;line-height:1.5;color:var(--soft);padding:8px 10px;border-radius:6px;background:rgba(140,90,43,.08)}
+#srcPanel .used{font:500 11.5px var(--mono);color:var(--mut)}
+#srcPanel p#srcText{max-height:9.5em;overflow:auto}
+/* QR */
+.qr{display:inline-flex;align-items:center;gap:12px;padding:8px 12px 8px 8px;border:1px solid var(--line2);border-radius:10px;background:#FBF7EF;text-decoration:none;color:var(--ink)}
+.qr img{width:74px;height:74px;display:block}
+.qr span{font:500 12px/1.45 var(--mono);color:var(--mut)}.qr b{display:block;font:700 15px var(--display);color:var(--ink)}
+/* final questions */
+.qa{display:grid;gap:12px}
+.qa .row2{display:grid;grid-template-columns:52px minmax(0,1fr) minmax(0,1.25fr);gap:16px;align-items:start;padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.qa .n{font:italic 700 40px/1 var(--display);color:var(--red)}
+.qa .qq{font:600 19px/1.35 var(--display)}
+.qa .aa{font-size:17px;line-height:1.5;color:var(--ink);border-left:3px solid var(--gold);padding-left:14px}
+.qa .aa .tag{margin-top:8px}
+@media (max-width:760px){.qa .row2{grid-template-columns:1fr}}
+.qend{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;margin-top:8px}
+.qend h3{font:italic 800 clamp(48px,7vw,96px)/1 var(--display)}
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.flagtext{animation:none}}
 </style>
 </head>
 <body>
 <div id="prog"></div>
+<nav id="rail" aria-label="Parts of the presentation"><span class="rp"><i id="railBar"></i></span>
+  <a href="#act1" data-r="act1"><b>I</b><span>The Headline</span></a>
+  <a href="#act2" data-r="act2"><b>II</b><span>Marshall’s Lens</span></a>
+  <a href="#act3" data-r="act3"><b>III</b><span>Identity</span></a>
+  <a href="#act4" data-r="act4"><b>IV</b><span>Back to the Headline</span></a>
+  <a href="#questions" data-r="questions"><b>?</b><span>Questions</span></a>
+  <a href="#bibliography" data-r="bibliography"><b>§</b><span>Sources</span></a>
+</nav>
 <div class="strip"><span><b>An atlas</b> of land, people and power</span><span>UFV · International Business &amp; International Relations · Nov 2026</span></div>
 
 <header class="nav">
@@ -213,21 +273,21 @@ body.present.shownotes #notes{display:block}
 </header>
 
 <main>
-<section class="sec hero" id="hero" data-sec="Opening" data-notes="State the research question out loud. Explain the evidence key: gold is Marshall, teal is a verified fact, violet is our own analysis. Every [S#] opens its source. Announce the route: a headline, Marshall's lens, American identity, back to the headline.">
+<section class="sec hero" id="hero" data-sec="Opening" data-notes="State the research question out loud. Explain the evidence key: brown is Marshall, green is a verified fact, red-brown is our own analysis. Point to the QR code: the class can follow on their phones. Every [S#] opens its source. Announce the route: a headline, Marshall's lens, American identity, back to the headline.">
   <div class="wrap">
     <div class="row" style="align-items:center;gap:36px">
       <div class="col" style="flex:1 1 480px;gap:22px">
         <span class="eyebrow">Based on Tim Marshall · Prisoners of Geography (2015), ch. 3</span>
-        <h1>The United States</h1>
+        <h1 class="flagtext">The United States</h1>
         <p class="sub">Geography · People · Power</p>
         <div class="q"><span class="k">Central research question</span><p>How does the geography of the United States shape its people, its history and its position as a global superpower?</p></div>
         <div class="chips" style="gap:12px"><a class="btn" href="#act1">Open the briefing</a><button class="btn ghost" type="button" id="btnPresent2">Start presentation</button></div>
-        <p class="k" style="color:var(--soft)">Beltran Garcia San Miguel Luengo · Sara Gamez · Lucia Camacho</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center"><p class="k" style="color:var(--soft)">Beltran Garcia San Miguel Luengo · Sara Gamez · Lucia Camacho</p><a class="qr" href="https://beltrangsml.github.io/usa-geography/"><img src="assets/qr.svg" alt="QR code to this website"><span><b>Explore it on your phone</b>beltrangsml.github.io/usa-geography</span></a></div>
         <div class="legend"><span>EVIDENCE KEY</span><span class="tag m">MARSHALL</span><span class="tag v">VERIFIED FACT</span><span class="tag a">OUR ANALYSIS</span><span>· click any <span class="src" style="cursor:default">S#</span> to see its source</span></div>
       </div>
       <div class="mapbox" style="flex:1 1 480px;min-width:0" id="b-hero">
         <div class="map" id="m-hero" role="img" aria-label="Rotating globe with the United States highlighted and arcs from Washington to six partners"></div>
-        <div class="fail">The globe needs the Plotly library and Natural Earth data, loaded from a public CDN. Check the internet connection.</div>
+        <div class="fail">The globe needs the Plotly library and Natural Earth data, bundled with the site. Reload the page.</div>
         <div class="mapcap"><span>DRAG TO ROTATE · AUTO-ROTATES</span><span>WASHINGTON → OTTAWA · MEXICO CITY · BRUSSELS · BAHRAIN · BEIJING · GUAM · NUUK</span></div>
       </div>
     </div>
@@ -243,7 +303,7 @@ body.present.shownotes #notes{display:block}
 <!-- ================= ACT I ================= -->
 <section class="act" id="act1" data-sec="Act I · The Headline" data-notes="One headline only: Greenland. Read the facts from the card: two new defence areas, Pituffik expanded, veto on non-NATO presence and investment. Then ask the three questions and leave them open. Promise: we come back to this headline at the end.">
   <div class="wrap">
-    <span class="num">I</span>
+    <span class="num flagtext" aria-hidden="true">I</span>
     <span class="eyebrow">Act I</span>
     <h2>The Headline</h2>
     <p class="lead">One piece of news from 2026 that only makes sense once you look at a map.</p>
@@ -284,7 +344,7 @@ body.present.shownotes #notes{display:block}
 <!-- ================= ACT II ================= -->
 <section class="act" id="act2" data-sec="Act II · Marshall’s Lens" data-notes="Marshall's thesis in one sentence: the landscape constrains and enables leaders. For the US: a continent uniquely favourable to power, secured by shrewd territorial decisions. Walk the five steps quickly. Then the caveat: Marshall is a journalist; we test him, we do not just repeat him. Our position: geography is the stage, not the script.">
   <div class="wrap">
-    <span class="num">II</span>
+    <span class="num flagtext" aria-hidden="true">II</span>
     <span class="eyebrow">Act II · theoretical framework</span>
     <h2>Marshall’s Lens</h2>
     <p class="lead">Before answering the questions, the theory we use to read the map.</p>
@@ -329,7 +389,7 @@ body.present.shownotes #notes{display:block}
       <div class="col" style="flex:999 1 560px">
         <div class="mapbox" id="b-land">
           <div class="map tall" id="m-land" role="img" aria-label="Map of the United States with toggleable layers: relief, rivers, arid West, crop belts, energy, ports and corridors"></div>
-          <div class="fail">The map needs the Plotly library from a public CDN.</div>
+          <div class="fail">The map could not load. Reload the page.</div>
           <div class="mapcap"><span>ALASKA AND HAWAII IN INSETS · DOTS FLOW DOWNSTREAM TOWARD NEW ORLEANS</span><span id="landCap">REAL DATA · NATURAL EARTH · USDA · EIA</span></div>
         </div>
         <div class="grid g3">
@@ -357,7 +417,7 @@ body.present.shownotes #notes{display:block}
       <div class="col" style="flex:1.6 1 560px">
         <div class="mapbox" id="b-acq">
           <div class="map" id="m-acq" role="img" aria-label="States coloured by the era in which the territory was acquired, with animated historic routes"></div>
-          <div class="fail">The map needs the Plotly library from a public CDN.</div>
+          <div class="fail">The map could not load. Reload the page.</div>
           <div class="mapcap"><span id="acqCap">1783 · TREATY OF PARIS</span><span>STATES BY DOMINANT ACQUISITION · ROUTES ANIMATE ONCE OPENED · THE MAP REFRAMES FOR ALASKA, HAWAII AND PANAMA</span></div>
         </div>
       </div>
@@ -376,7 +436,7 @@ body.present.shownotes #notes{display:block}
 <!-- ================= ACT III ================= -->
 <section class="act" id="act3" data-sec="Act III · Identity" data-notes="Transition: the same geography that built power also shaped the people. This answers question 3 from the headline.">
   <div class="wrap">
-    <span class="num">III</span>
+    <span class="num flagtext" aria-hidden="true">III</span>
     <span class="eyebrow">Act III · human geography</span>
     <h2>Identity</h2>
     <p class="lead">An abundant, isolated, enormous territory produced a society built on mobility, land and opportunity. It is diverse, and increasingly divided along geographic lines.</p>
@@ -416,7 +476,7 @@ body.present.shownotes #notes{display:block}
       </div>
       <div class="mapbox" style="flex:1.2 1 460px;min-width:0" id="b-app">
         <div class="map" id="m-app" role="img" aria-label="The 13 Appalachian Regional Commission states with the Appalachian Mountains and plateaus"></div>
-        <div class="fail">The map needs the Plotly library from a public CDN.</div>
+        <div class="fail">The map could not load. Reload the page.</div>
         <div class="mapcap"><span>SHADED = 13 ARC STATES [S40] · BROWN = APPALACHIAN MTS, ALLEGHENY AND CUMBERLAND PLATEAUS (NATURAL EARTH)</span></div>
       </div>
     </div>
@@ -433,7 +493,7 @@ body.present.shownotes #notes{display:block}
       </div>
       <div class="mapbox" style="flex:1.2 1 460px;min-width:0" id="b-vote">
         <div class="map" id="m-vote" role="img" aria-label="2024 presidential result by state"></div>
-        <div class="fail">The map needs the Plotly library from a public CDN.</div>
+        <div class="fail">The map could not load. Reload the page.</div>
         <div class="mapcap"><span class="legend"><span><i style="background:#2C5A8C"></i>Harris 2024</span><span><i style="background:#A3261E"></i>Trump 2024</span></span><span>STATEWIDE WINNER · MAINE AND NEBRASKA SPLIT ONE ELECTORAL VOTE EACH</span></div>
       </div>
     </div>
@@ -488,7 +548,7 @@ body.present.shownotes #notes{display:block}
 <!-- ================= ACT IV ================= -->
 <section class="act" id="act4" data-sec="Act IV · Back to the Headline" data-notes="Return to Greenland. Read each element of the deal through what we have learned: exclusion clause = Monroe; bases = concrete; purchase pressure = Louisiana and Alaska; mining veto = Arctic resources; style = frontier and commercial mentality. Then the world map: the same logic with Canada, Mexico, China, NATO, Indo-Pacific, Middle East.">
   <div class="wrap">
-    <span class="num">IV</span>
+    <span class="num flagtext" aria-hidden="true">IV</span>
     <span class="eyebrow">Act IV · conclusion</span>
     <h2>Back to the Headline</h2>
     <p class="lead">The same news, read again with Marshall’s lens and with what we now know about the people.</p>
@@ -508,7 +568,7 @@ body.present.shownotes #notes{display:block}
         <div class="chips" role="group" aria-label="Map projection"><button class="chip" id="pFlat" aria-pressed="true" type="button">Flat map</button><button class="chip" id="pGlobe" aria-pressed="false" type="button">3D globe</button></div>
         <div class="mapbox" id="b-world">
           <div class="map tall" id="m-world" role="img" aria-label="World map with arcs from Washington to seven partners and six maritime chokepoints"></div>
-          <div class="fail">The map needs the Plotly library from a public CDN.</div>
+          <div class="fail">The map could not load. Reload the page.</div>
           <div class="mapcap"><span>RED RINGS = CHOKEPOINTS: HORMUZ · MALACCA · PANAMA · GIUK · BERING · FLORIDA STRAITS</span><span>SELECTED ARC HIGHLIGHTED</span></div>
         </div>
       </div>
@@ -561,6 +621,18 @@ body.present.shownotes #notes{display:block}
   </div>
 </section>
 
+<section class="sec" id="questions" data-sec="Questions" data-notes="Close the circle: read each question from the headline and its one-line answer. Then open the floor. Leave the QR on screen so the class can explore the data desk on their phones.">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Back to the headline · Greenland, 22 Sep 2026</span><h2>Three questions, three answers</h2></div>
+    <div class="qa">
+      <div class="row2"><span class="n">1</span><p class="qq">Why would the world’s strongest power pressure its own ally for an ice-covered island?</p><div class="aa">Because Greenland sits on the shortest polar route to Russia and flanks the GIUK gap: for a continent protected by two oceans, it is the Arctic gate. <span class="tag a">OUR ANALYSIS · MARSHALL [S1, S3]</span></div></div>
+      <div class="row2"><span class="n">2</span><p class="qq">Why does Washington believe it can buy, pressure and build its way into new territory?</p><div class="aa">Because it always has: Louisiana (1803), Alaska (1867) and the Monroe Doctrine taught it that land can be acquired and rivals kept out of the hemisphere. <span class="tag a">OUR ANALYSIS · MARSHALL [S1]</span></div></div>
+      <div class="row2"><span class="n">3</span><p class="qq">What does this tell us about the people and the country behind the decision?</p><div class="aa">A frontier, commercial culture that treats territory as a deal, inside a country whose regions and votes are themselves drawn by geography. <span class="tag a">OUR ANALYSIS [S50, S80]</span></div></div>
+    </div>
+    <div class="qend"><h3>Questions?</h3><a class="qr" href="https://beltrangsml.github.io/usa-geography/"><img src="assets/qr.svg" alt="QR code to this website" style="width:120px;height:120px"><span><b>Explore the atlas yourself</b>beltrangsml.github.io/usa-geography<br>Beltran Garcia San Miguel Luengo · Sara Gamez · Lucia Camacho</span></a></div>
+  </div>
+</section>
+
 <section class="sec" id="bibliography" data-sec="Sources" data-notes="Only if asked: every [S#] in the site links here.">
   <div class="wrap">
     <div class="head"><span class="eyebrow">Sources · accessed November 2026</span><h2>Bibliography</h2><p class="lead">Every [S#] in the site opens its entry. Theoretical works are listed at the end.</p></div>
@@ -571,7 +643,7 @@ body.present.shownotes #notes{display:block}
 
 <footer><span>UFV · INTERNATIONAL BUSINESS &amp; INTERNATIONAL RELATIONS · 2026 · BELTRAN GARCIA SAN MIGUEL LUENGO · SARA GAMEZ · LUCIA CAMACHO</span><span>OPEN DATA · NATURAL EARTH · USDA · EIA · U.S. CENSUS BUREAU</span></footer>
 
-<aside id="srcPanel" role="dialog" aria-label="Source" hidden><button class="x" type="button" aria-label="Close source">×</button><span class="id" id="srcId"></span><p id="srcText"></p><a id="srcLink" target="_blank" rel="noopener"></a><a id="srcBib" href="#bibliography" style="font:500 12px var(--mono);color:var(--mut)">See full bibliography ↓</a></aside>
+<aside id="srcPanel" role="dialog" aria-label="Source" hidden><button class="x" type="button" aria-label="Close source">×</button><div class="shead"><span class="ico" id="srcIco" aria-hidden="true"></span><div><span class="id" id="srcId"></span><div class="ty" id="srcType"></div></div></div><p class="what" id="srcWhat"></p><p id="srcText"></p><span class="used" id="srcUsed"></span><a id="srcLink" target="_blank" rel="noopener"></a><a id="srcBib" href="#bibliography" style="font:500 12px var(--mono);color:var(--mut)">See full bibliography ↓</a></aside>
 <div id="notes" role="dialog" aria-label="Presenter notes"><span class="k">Presenter notes · <span id="notesSec"></span></span><ul id="notesList"></ul></div>
 <div id="hud" aria-label="Presentation controls">
   <span><b id="hudSec">Opening</b></span><span><b id="hudPos">1</b> / <b id="hudTot">1</b></span>
@@ -683,7 +755,30 @@ function cite(root){
   });
 }
 var sp=$('#srcPanel');
-function openSrc(id){var s=SRC[id];if(!s)return;$('#srcId').textContent=id+' · SOURCE';$('#srcText').textContent=s[0];var a=$('#srcLink');if(s[1]){a.href=s[1];a.textContent=s[1].replace(/^https?:\/\//,'')+' ↗';a.hidden=false}else a.hidden=true;$('#srcBib').href='#'+id;sp.hidden=false}
+var SICO={book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></svg>',
+ stats:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M6 17V9M11 17V5M16 17v-6M21 17v-9"/></svg>',
+ survey:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3h6v3H9zM8.5 11l1.5 1.5 3-3M8.5 16.5h7"/></svg>',
+ data:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>',
+ news:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h13v14H6a2 2 0 0 1-2-2zM17 9h3v8a2 2 0 0 1-2 2"/><path d="M7 9h7M7 12.5h7M7 16h4"/></svg>',
+ paper:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 15.5h7M9 9h3"/></svg>'};
+var STYPE={book:['Book','The theoretical framework of the project. We use it for Marshall’s arguments, always labelled as his.'],
+ stats:['Official statistics or government record','Primary data published by a public body. We use it for verified figures and facts.'],
+ survey:['Survey research','A representative poll or survey. We use it for attitudes and beliefs, with its margin of error in mind.'],
+ data:['Open dataset','Public or academic data we load and draw ourselves, for maps and charts.'],
+ news:['News report','Journalism on recent events. We use it for what happened and when, checked against official texts where possible.'],
+ paper:['Report or academic study','Analysis by researchers or institutions. We use it for context and interpretation.']};
+function srcKind(id,s){var u=(s[1]||'').toLowerCase(),x=s[0].toLowerCase();
+  if(id==='S1'||/\(\d{4}\)\.[^.]*\. (london|new york|oxford)/.test(x)||/ press\b|random house|crown|elliott/.test(x))return 'book';
+  if(/naturalearth|dataverse|github|natural earth|mit election/.test(u+x))return 'data';
+  if(/pewresearch|gallup|survey|poll/.test(u+x))return 'survey';
+  if(/\.gov\b|\.gov\/|census|bea\.gov|eia\.gov|usda|archives\.gov|congress|whitehouse|state\.gov|defense\.gov|federalregister|\.mil\b|nato\.int|un\.org|worldbank|imf\.org|oecd/.test(u)||/u\.s\. census|bureau|department of|agency|commission|nato|united nations|world bank/.test(x))return 'stats';
+  if(/reuters|apnews|bbc|nytimes|washingtonpost|wsj|ft\.com|guardian|cnn|fox|politico|axios|bloomberg|economist|aljazeera|npr|abc|cbs|nbc|dw\.com|lemonde|elpais|news/.test(u))return 'news';
+  return 'paper'}
+function srcUsed(id){var seen=[];$$('.src[data-s="'+id+'"]').forEach(function(b){var s=b.closest('section[data-sec]');if(s&&s.id!=='bibliography'){var n=s.dataset.sec;if(seen.indexOf(n)<0)seen.push(n)}});return seen}
+function openSrc(id){var s=SRC[id];if(!s)return;var k=srcKind(id,s),u=srcUsed(id);
+  $('#srcIco').innerHTML=SICO[k];$('#srcId').textContent=id+' · SOURCE';$('#srcType').textContent=STYPE[k][0];$('#srcWhat').textContent=STYPE[k][1];
+  $('#srcText').textContent=s[0];$('#srcUsed').textContent=u.length?'Cited in: '+u.slice(0,4).join(' · ')+(u.length>4?' · …':''):'';
+  var a=$('#srcLink');if(s[1]){a.href=s[1];a.textContent=s[1].replace(/^https?:\/\//,'')+' ↗';a.hidden=false}else a.hidden=true;$('#srcBib').href='#'+id;sp.hidden=false;sp.querySelector('.x').focus({preventScroll:true})}
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.src[data-s]');if(b){e.preventDefault();openSrc(b.dataset.s)}});
 $('#srcPanel .x').addEventListener('click',function(){sp.hidden=true});
 function buildBib(){
@@ -1049,13 +1144,26 @@ document.addEventListener('keydown',function(e){
   else if(e.key==='n'||e.key==='N'){document.body.classList.toggle('shownotes')}
   else if(e.key==='Escape'){present(false)}
 });
-var navA=$$('.links a'),acts=['act1','act2','act3','act4','bibliography'];
-var actOf={hero:null,act1:'act1',act2:'act2',land:'act2',power:'act2',act3:'act3',people:'act3',txca:'act3',culture:'act3',act4:'act4',world:'act4',critique:'act4',future:'act4',bibliography:'bibliography'};
+var navA=$$('.links a').concat($$('#rail a')),acts=['act1','act2','act3','act4','questions','bibliography'];
+var actOf={hero:null,act1:'act1',act2:'act2',land:'act2',power:'act2',act3:'act3',people:'act3',txca:'act3',culture:'act3',act4:'act4',world:'act4',critique:'act4',future:'act4',questions:'questions',bibliography:'bibliography'};
 function onScroll(){
   var h=document.documentElement.scrollHeight-window.innerHeight;$('#prog').style.width=(h>0?window.scrollY/h*100:0)+'%';
   var y=window.scrollY+120,cur=null;$$('section[id]').forEach(function(s){if(s.offsetTop<=y)cur=actOf[s.id]});
   navA.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)});
+  var rb=$('#railBar');if(rb)rb.style.height=(h>0?window.scrollY/h*100:0)+'%';
 }
+/* rail items follow the inward curve of the rail */
+function railCurve(){var r=$('#rail');if(!r||innerWidth<=1000){$$('#rail a').forEach(function(a){a.style.removeProperty('--dx')});return}
+  var H=r.clientHeight,R=520,c=498;$$('#rail a').forEach(function(a){var dy=a.offsetTop+a.offsetHeight/2-H/2,cut=c-Math.sqrt(Math.max(0,R*R-dy*dy));a.style.setProperty('--dx',Math.round(Math.min(0,cut))+'px')})}
+window.addEventListener('resize',railCurve);setTimeout(railCurve,0);
+/* scroll reveal: sections enter softly */
+(function(){if(reduce||!('IntersectionObserver' in window))return;
+  var els=$$('main .head, main .card, main .panel, main .mapbox, main .tile, main .oq > div, main .step, main .dd, main .qa .row2, main .answer, main article.col, main .note-a');
+  els.forEach(function(e){var sib=e.parentNode?Array.prototype.indexOf.call(e.parentNode.children,e):0;e.classList.add('rv');e.style.transitionDelay=Math.min(sib,5)*70+'ms'});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.06});
+  els.forEach(function(e){io.observe(e)});
+  setTimeout(function(){els.forEach(function(e){var b=e.getBoundingClientRect();if(b.top<innerHeight)e.classList.add('in')})},50);
+})();
 window.addEventListener('scroll',onScroll,{passive:true});
 
 /* ================= BOOT ================= */
