@@ -250,6 +250,15 @@ body.present.shownotes #notes{display:block}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.flagtext{animation:none}}
+
+/* hero globe · Google-Earth style */
+#b-hero:has(.earth){background:radial-gradient(120% 90% at 50% 45%,#16233d 0%,#0a1020 55%,#05070d 100%);border-color:#2a3550}
+#b-hero:has(.earth) .mapcap{background:rgba(5,7,13,.72);color:#AFC0D8;border-top:1px solid #1f2a40}
+.map.earth{position:relative;cursor:grab;touch-action:pan-y}.map.earth:active{cursor:grabbing}
+.map.earth canvas{display:block;outline:none}
+.glabels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.glab{position:absolute;left:0;top:0;margin:-18px 0 0 8px;font:600 11px Inter,system-ui,sans-serif;color:#FFF3DF;letter-spacing:.02em;white-space:nowrap;text-shadow:0 1px 2px #000,0 0 8px rgba(0,0,0,.8);transition:opacity .3s;will-change:transform}
+.glab.dc{font-size:12.5px;color:#FFD08A}
 </style>
 </head>
 <body>
@@ -288,7 +297,7 @@ body.present.shownotes #notes{display:block}
       <div class="mapbox" style="flex:1 1 480px;min-width:0" id="b-hero">
         <div class="map" id="m-hero" role="img" aria-label="Rotating globe with the United States highlighted and arcs from Washington to six partners"></div>
         <div class="fail">The globe needs the Plotly library and Natural Earth data, bundled with the site. Reload the page.</div>
-        <div class="mapcap"><span>DRAG TO ROTATE · AUTO-ROTATES</span><span>WASHINGTON → OTTAWA · MEXICO CITY · BRUSSELS · BAHRAIN · BEIJING · GUAM · NUUK</span></div>
+        <div class="mapcap"><span>DRAG TO ROTATE · CTRL + SCROLL TO ZOOM · IMAGERY NASA BLUE MARBLE [S83] · BORDERS NATURAL EARTH [S56]</span><span>WASHINGTON → OTTAWA · MEXICO CITY · BRUSSELS · BAHRAIN · BEIJING · GUAM · NUUK</span></div>
       </div>
     </div>
     <div class="tiles">
@@ -665,6 +674,9 @@ RV:{"Mississippi":[[[-89.3,29.2],[-90,29.7],[-90,29.8],[-89.9,29.9],[-90.8,30],[
 "Hudson":[[[-74.1,44.1],[-74.2,43.9],[-73.9,43.7],[-73.8,43.3],[-73.6,43.2],[-73.8,42.4],[-73.9,42],[-74,41.2]]]}};
 
 </script>
+<script type="importmap">{"imports":{"three":"./assets/vendor/three.module.min.js"}}</script>
+<script src="assets/globe-lines.js"></script>
+<script type="module" src="assets/globe.js"></script>
 <script src="assets/dd-data.js"></script>
 <script src="assets/dd-geo.js"></script>
 <script src="assets/dd.js"></script>
@@ -726,6 +738,7 @@ S57:['The American Presidency Project, UC Santa Barbara. 2024 presidential elect
 S79:['U.S. Census Bureau. American Community Survey 1-year estimates, 2019, 2023 and 2024: tables B01003 (population), B05002 (place of birth), B03003 (Hispanic origin), B19013 (median household income), B17001 (poverty), B15003 (education), B01002 (median age). States, census regions and nation, via the Census Data API. Retrieved 20 Nov 2026. No standard 1-year release exists for 2020.','https://www.census.gov/programs-surveys/acs/data.html'],
 S80:['MIT Election Data and Science Lab (2017, version 10.1, 2026). U.S. President 1976–2024. Harvard Dataverse, doi:10.7910/DVN/42MVDX (CC0), compiled from certified state results. Retrieved 20 Nov 2026. National 2024 totals: Trump 77,302,580 (49.7%), Harris 75,017,615 (48.3%). Texas matches [S57].','https://doi.org/10.7910/DVN/42MVDX'],
 S81:['Pew Research Center (2025). 2023–24 U.S. Religious Landscape Study Interactive Database, state profiles (36,908 adults, 17 Jul 2023 to 4 Mar 2024). doi:10.58094/3zs9-jc14. Retrieved 20 Nov 2026; New Hampshire and Utah checked by hand against the state pages.','https://www.pewresearch.org/religious-landscape-study/'],
+S83:['NASA Earth Observatory. Blue Marble: Next Generation with topography and bathymetry (public domain imagery), equirectangular texture as distributed with the three-globe examples (MIT). Rendered by us as a 3D globe with three.js.','https://visibleearth.nasa.gov/collection/1484/blue-marble'],
 S82:['State boundaries: U.S. Census Bureau cartographic boundary file (simplified), as distributed in the PublicaMundi MappingAPI sample data (GitHub). Projected by us to Albers equal-area (lower 48), with Alaska and Hawaii as insets not to scale.','https://github.com/PublicaMundi/MappingAPI']
 };
 var THEORY=['Acemoglu, D. & Robinson, J. A. (2012). Why Nations Fail. New York: Crown.','Kaplan, R. D. (2012). The Revenge of Geography. New York: Random House.','Zeihan, P. (2014). The Accidental Superpower. New York: Twelve.','Turner, F. J. (1893). “The Significance of the Frontier in American History”. American Historical Association.','Woodard, C. (2011). American Nations. New York: Viking.','Adams, J. T. (1931). The Epic of America. Boston: Little, Brown.','Tocqueville, A. de (1835/1840). Democracy in America.','Bruder, J. (2017). Nomadland. New York: W. W. Norton. · Films: American Factory (2019), Nomadland (2020).'];
@@ -1171,7 +1184,7 @@ buildBib();landInit();featInit();acqInit();powerInit();peopleInit();cultureInit(
 function boot(){
   OK=!!(window.Plotly&&window.PlotlyGeoAssets&&window.PlotlyGeoAssets.topojson);
   if(!OK){['b-hero','b-g','b-land','b-acq','b-app','b-vote','b-tx','b-ca','b-world'].forEach(mapFail);return}
-  lazy('b-hero','hero',heroGlobe);lazy('b-g','green',greenland);lazy('b-land','land',renderLand);lazy('b-acq','acq',acqMap);
+  window.heroGlobeFallback=function(){if(!drawn.hero&&!window.__heroGlobe)lazy('b-hero','hero',heroGlobe)};setTimeout(function(){if(!window.__heroGlobe)window.heroGlobeFallback()},2500);lazy('b-g','green',greenland);lazy('b-land','land',renderLand);lazy('b-acq','acq',acqMap);
   lazy('b-app','app',appMap);lazy('b-vote','vote',voteMap);lazy('b-tx','tx',txMap);lazy('b-ca','ca',caMap);lazy('b-world','world',worldMap);
 }
 if(document.readyState==='complete')boot();else window.addEventListener('load',boot);
