@@ -184,7 +184,9 @@
 "cap": "Farmland of the Central Lowland, Illinois (NASA)",
 "by": "NASA Earth Observatory image by Michala Garrison, using Cropland data from USDA NASS and t",
 "lic": "Public domain",
-"alias": []
+"alias": [
+"corn belt"
+]
 },
 "great basin": {
 "src": "assets/photos/great-basin.jpg",
@@ -210,7 +212,9 @@
 "cap": "Wheat fields of the Palouse, Columbia Plateau",
 "by": "Dana Hutchinson",
 "lic": "CC BY 3.0",
-"alias": []
+"alias": [
+"wheat belt"
+]
 },
 "ozark plateau": {
 "src": "assets/photos/ozark-plateau.jpg",
@@ -820,9 +824,9 @@
 },
 "yucatán channel": {
 "src": "assets/photos/yucat-n-channel.jpg",
-"file": "Bay_of_Honduras.jpg",
+"file": "1854_Hidrografica_Nautical_Chart_of_Map_of_Cuba_-_Geographicus_-_CubaWest-hydrografica-1837.jpg",
 "cap": "The Yucatán Channel",
-"by": "Wikimedia Commons",
+"by": "http://www.geographicus.com/mm5/cartographers/hidrografica.txt",
 "lic": "Public domain",
 "alias": []
 },
@@ -868,9 +872,9 @@
 },
 "laredo": {
 "src": "assets/photos/laredo.jpg",
-"file": "Laredo_World_Trade_Port_of_Entry.jpg",
+"file": "Laredo_Downtown.JPG",
 "cap": "World Trade Bridge, Laredo: the busiest US–Mexico freight crossing",
-"by": "Wbaron",
+"by": "Not home at en.wikipedia",
 "lic": "CC BY-SA 3.0",
 "alias": []
 },
@@ -907,11 +911,11 @@
 "alias": []
 },
 "greenland": {
-"src": "assets/photos/greenland.png",
-"file": "Greenland_ice_sheet_AMSL_thickness_map-en.png",
-"cap": "The Greenland ice sheet",
-"by": "Eric Gaba (Sting - fr:Sting)",
-"lic": "CC BY-SA 3.0",
+"src": "assets/photos/greenland.jpg",
+"file": "Ilulissat_Icefjord.jpg",
+"cap": "Ilulissat Icefjord, Greenland",
+"by": "Quintin Soloviev",
+"lic": "CC BY 4.0",
 "alias": []
 },
 "ramstein": {
@@ -939,10 +943,10 @@
 "alias": []
 },
 "yokosuka": {
-"src": "assets/photos/yokosuka.png",
-"file": "CFAY_logoA_update_Dec2020.png",
+"src": "assets/photos/yokosuka.jpg",
+"file": "Yokosuka_Montage.jpg",
 "cap": "US Fleet Activities Yokosuka, Japan",
-"by": "Randall G. Baucom",
+"by": "水だらけのプール",
 "lic": "CC BY-SA 4.0",
 "alias": []
 },
@@ -1045,19 +1049,19 @@
 ]
 },
 "allegheny plateau": {
-"src": "assets/photos/allegheny-plateau.png",
-"file": "Alleghenyplateaumap.png",
-"cap": "The Allegheny Plateau",
-"by": "No machine-readable author provided. Kmusser assumed (based on copyright claims).",
-"lic": "CC BY-SA 2.5",
+"src": "assets/photos/allegheny-plateau.jpg",
+"file": "Mead_Run3.JPG",
+"cap": "Allegheny National Forest on the Allegheny Plateau",
+"by": "IvoShandor",
+"lic": "CC BY 2.5",
 "alias": []
 },
 "cumberland plateau": {
-"src": "assets/photos/cumberland-plateau.png",
-"file": "Cumberlandplateaumap.png",
-"cap": "The Cumberland Plateau",
-"by": "Kmusser",
-"lic": "CC BY-SA 2.5",
+"src": "assets/photos/cumberland-plateau.jpg",
+"file": "Fall_creek_falls_2003.jpg",
+"cap": "Fall Creek Falls on the Cumberland Plateau",
+"by": "Ichabod",
+"lic": "CC BY-SA 3.0",
 "alias": []
 },
 "adirondack": {
@@ -1079,11 +1083,11 @@
 "alias": []
 },
 "edwards plateau": {
-"src": "assets/photos/edwards-plateau.png",
-"file": "Edwards_Plateau.png",
-"cap": "The Edwards Plateau",
-"by": "Jeff Schmaltz, MODIS Rapid Response Team, NASA/GSFC",
-"lic": "Public domain",
+"src": "assets/photos/edwards-plateau.jpg",
+"file": "Enchanted_Rock_(50753440137).jpg",
+"cap": "The Texas Hill Country on the Edwards Plateau",
+"by": "G. Lamar",
+"lic": "CC BY 2.0",
 "alias": []
 },
 "black hills": {
@@ -1095,40 +1099,12 @@
 "alias": []
 },
 "coastal plain": {
-"src": "assets/photos/coastal-plain.png",
-"file": "Fixed_gulf_map.png",
-"cap": "The Gulf Coastal Plain",
-"by": "NOAA",
+"src": "assets/photos/coastal-plain.jpg",
+"file": "Atchafalaya_Basin.jpg",
+"cap": "The Atchafalaya Basin on the Gulf Coastal Plain",
+"by": "U.S. Army Corps of Engineers, photographer not specified or unknown",
 "lic": "Public domain",
 "alias": []
-},
-"corn belt": {
-"src": "assets/photos/corn-belt.jpg",
-"file": "Corn_harvested_acres_by_county.webp",
-"cap": "The Corn Belt",
-"by": "USDA",
-"lic": "Public domain",
-"alias": []
-},
-"ocean atlantic": {
-"src": "assets/photos/ocean-atlantic.png",
-"file": "Atlantic_Ocean_-_en.png",
-"cap": "The Atlantic Ocean",
-"by": "CIA",
-"lic": "Public domain",
-"alias": [
-"atlantic"
-]
-},
-"ocean pacific": {
-"src": "assets/photos/ocean-pacific.png",
-"file": "Pacific_Ocean_-_en.png",
-"cap": "The Pacific Ocean",
-"by": "CIA World Factbook",
-"lic": "Public domain",
-"alias": [
-"pacific"
-]
 },
 "newport": {
 "src": "assets/photos/newport.jpg",
@@ -1155,11 +1131,11 @@
 "alias": []
 },
 "mackinac": {
-"src": "assets/photos/mackinac.png",
-"file": "Mackinac_Island_topographic_map-en.svg",
+"src": "assets/photos/mackinac.jpg",
+"file": "Grand_Hotel,_Mackinac_Island,_Michigan_-_53793790630.jpg",
 "cap": "Mackinac Island",
-"by": "Eric Gaba (Sting - fr:Sting)",
-"lic": "CC BY-SA 3.0",
+"by": "rboed*",
+"lic": "CC BY 2.0",
 "alias": []
 },
 "green bay": {
@@ -1364,7 +1340,7 @@
 },
 "selma": {
 "src": "assets/photos/selma.jpg",
-"file": "The_St._James_Hotel,_the_only_surviving_hotel_in_the_downtown_historic_district,_Selma,_Alabama_LCCN2010639082.tif",
+"file": "Edmund_Pettus_Bridge_03.jpg",
 "cap": "Selma, Alabama",
 "by": "Carol M. Highsmith",
 "lic": "Public domain",
