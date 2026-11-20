@@ -200,25 +200,47 @@ body.present.shownotes #notes{display:block}
 }
 
 /* ===== 20 Nov · interface upgrade ===== */
-/* curved left rail: part numbers only, opens on hover */
-#rail{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:70;width:86px;height:min(560px,72vh);padding:0;display:flex;flex-direction:column;justify-content:center;gap:2px;
-  background:linear-gradient(180deg,#241A14,#1F1712);border-radius:0 26px 26px 0;box-shadow:6px 0 30px -12px rgba(31,23,18,.6);
-  -webkit-mask:radial-gradient(circle 520px at calc(100% + 498px) 50%,transparent 99.6%,#000 100%);mask:radial-gradient(circle 520px at calc(100% + 498px) 50%,transparent 99.6%,#000 100%);
-  transition:width .35s cubic-bezier(.2,.8,.2,1)}
-#rail:hover,#rail:focus-within{width:250px}
-#rail a{position:relative;display:flex;align-items:center;gap:14px;height:52px;padding-left:calc(26px + var(--dx,0px));text-decoration:none;color:#BFAE98;white-space:nowrap;transition:color .2s}
-#rail a b{flex:none;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;font:italic 700 22px/1 var(--display);color:#E0C9A8;transition:color .2s,transform .2s}
-#rail a span{font:500 12.5px var(--mono);letter-spacing:.06em;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .25s}
-#rail:hover a span,#rail:focus-within a span{opacity:1;transform:none}
-#rail a:hover,#rail a.on{color:#fff}
-#rail a.on b{color:#fff;background:var(--red);transform:scale(1.06)}
-#rail .rp{position:absolute;left:8px;top:28px;bottom:28px;width:2px;border-radius:2px;background:rgba(224,201,168,.15)}
-#rail .rp i{display:block;width:100%;height:0;border-radius:2px;background:#E0A56C}
-@media (min-width:1001px){.nav .links{display:none}main,footer{padding-left:86px}}
+/* contents rail · slim, full height, opens on click */
+#rail{position:fixed;left:0;top:0;bottom:0;z-index:72;width:56px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 0 16px;background:#15100C;border-right:1px solid rgba(255,255,255,.06)}
+#rail .rt{width:36px;height:36px;border:0;border-radius:10px;background:rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:background .2s}
+#rail .rt span{display:block;width:16px;height:1.6px;border-radius:2px;background:#EDE3D3;transition:transform .25s,width .25s}
+#rail .rt span:last-child{width:10px;align-self:center;transform:translateX(-3px)}
+#rail .rt:hover{background:rgba(255,255,255,.12)}
+#rail .rt[aria-expanded=true] span:first-child{transform:translateY(3.3px) rotate(45deg)}
+#rail .rt[aria-expanded=true] span:last-child{width:16px;transform:translateY(-3.3px) rotate(-45deg)}
+#rail .rlist{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px}
+#rail .rlist a{position:relative;display:grid;place-items:center;width:36px;height:36px;border-radius:10px;text-decoration:none;color:#A8998A;transition:background .2s,color .2s}
+#rail .rlist a b{font:600 12px/1 Inter,system-ui,sans-serif;letter-spacing:.04em}
+#rail .rlist a:hover{background:rgba(255,255,255,.08);color:#fff}
+#rail .rlist a.on{background:var(--red);color:#fff;box-shadow:0 6px 16px -6px rgba(163,38,30,.8)}
+#rail .rlist a::after{content:attr(title);position:absolute;left:48px;top:50%;transform:translate(-4px,-50%);padding:6px 10px;border-radius:8px;background:#15100C;color:#F3ECDF;font:500 12px Inter,sans-serif;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;box-shadow:0 8px 20px -8px rgba(0,0,0,.5)}
+#rail .rlist a:hover::after{opacity:1;transform:translate(0,-50%)}
+#rail .rp{width:36px;height:36px;border:1px solid rgba(255,255,255,.14);border-radius:50%;background:transparent;color:#EDE3D3;display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s}
+#rail .rp:hover{background:var(--red);border-color:var(--red)}
+#rail .rbar{position:absolute;right:-1px;top:0;bottom:0;width:2px;background:transparent}
+#rail .rbar i{display:block;width:2px;height:0;background:linear-gradient(180deg,#E0A56C,var(--red))}
+#railPanel{position:fixed;left:56px;top:0;bottom:0;z-index:71;width:330px;max-width:calc(100vw - 56px);background:#1C1510;color:#EDE3D3;padding:22px 22px 28px;overflow-y:auto;box-shadow:24px 0 60px -20px rgba(0,0,0,.55);transform:translateX(-12px);opacity:0;transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .2s}
+#railPanel.on{transform:none;opacity:1}
+#railPanel .rph{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font:600 11px Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#A8998A}
+#railPanel .rph button{width:32px;height:32px;border:0;border-radius:8px;background:rgba(255,255,255,.07);color:#EDE3D3;font-size:18px;cursor:pointer}
+#railPanel ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+#railPanel li{display:flex;flex-direction:column;gap:2px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.06)}
+#railPanel a{display:flex;align-items:center;gap:14px;padding:9px 10px;border-radius:10px;color:#EDE3D3;text-decoration:none;transition:background .15s}
+#railPanel a:hover{background:rgba(255,255,255,.07)}
+#railPanel a b{flex:none;width:34px;height:34px;display:grid;place-items:center;border-radius:9px;background:rgba(255,255,255,.07);font:600 12px Inter,sans-serif}
+#railPanel a span{display:flex;flex-direction:column;font:600 15px 'Playfair Display',Georgia,serif}
+#railPanel a em{font:500 11.5px Inter,sans-serif;font-style:normal;color:#A8998A;margin-top:2px}
+#railPanel a.on b{background:var(--red);color:#fff}
+#railPanel a.sub{padding:6px 10px 6px 58px;font:500 13px Inter,sans-serif;color:#C9BBA8}
+#railPanel a.sub.on{color:#fff;background:rgba(163,38,30,.25)}
+#railShade{position:fixed;inset:0;z-index:70;background:rgba(21,16,12,.32)}
+@media (min-width:1001px){#railPanel .rph button{display:none}}
+@media (min-width:1001px){.nav .links{display:none}body{padding-left:56px}}
 @media (max-width:1000px){
-  #rail{top:auto;bottom:10px;left:50%;transform:translateX(-50%);width:auto;height:52px;flex-direction:row;border-radius:26px;padding:0 6px;-webkit-mask:none;mask:none}
-  #rail:hover,#rail:focus-within{width:auto}#rail a{height:52px;padding:0 6px!important;gap:0}#rail a span,#rail .rp{display:none}
-  body.present #hud{bottom:62px}
+  #rail{top:auto;left:50%;bottom:10px;transform:translateX(-50%);width:auto;height:56px;flex-direction:row;padding:0 10px;border-radius:18px;border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
+  #rail .rlist{flex-direction:row;gap:2px}#rail .rlist a{width:34px}#rail .rlist a::after,#rail .rbar,#rail .rlist a[data-r=hero]{display:none}
+  #railPanel{left:0;right:0;top:auto;bottom:0;width:auto;max-width:none;max-height:78vh;border-radius:18px 18px 0 0;transform:translateY(16px)}
+  body.present #hud{bottom:74px}
 }
 /* flag inside the title and the part numbers */
 .flagtext{background:url("assets/flag.svg") 0 0/115% 100% no-repeat;-webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-stroke:1.4px #1F1712;width:fit-content;animation:flagwave 9s ease-in-out infinite alternate}
@@ -259,18 +281,67 @@ body.present.shownotes #notes{display:block}
 .glabels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .glab{position:absolute;left:0;top:0;margin:-18px 0 0 8px;font:600 11px Inter,system-ui,sans-serif;color:#FFF3DF;letter-spacing:.02em;white-space:nowrap;text-shadow:0 1px 2px #000,0 0 8px rgba(0,0,0,.8);transition:opacity .3s;will-change:transform}
 .glab.dc{font-size:12.5px;color:#FFD08A}
+
+/* section photo banners */
+.photobanner{position:relative;isolation:isolate;overflow:hidden;border-radius:18px;background:#2a2019}
+.photobanner::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--bg,none) var(--bgpos,50% 50%)/cover no-repeat;transform:scale(1.04);opacity:0;transition:opacity .9s ease,transform 6s ease}
+.photobanner.bgon::before{opacity:1;transform:scale(1)}
+.photobanner::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,14,10,.18) 0%,rgba(20,14,10,.42) 45%,rgba(20,14,10,.86) 100%)}
+.sec .head.photobanner{padding:150px 32px 30px;border-bottom:0;min-height:360px;justify-content:flex-end}
+.acthead{display:flex;flex-direction:column;gap:14px}
+.acthead.photobanner{padding:clamp(120px,22vh,220px) clamp(24px,4vw,48px) 48px;min-height:min(72vh,660px);justify-content:flex-end}
+.photobanner h2,.photobanner .lead,.photobanner p{color:#FBF4E8!important;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.photobanner .lead{color:#E8DCC8!important}
+.photobanner .eyebrow{color:#F2C58E!important}
+.photobanner .num.flagtext{-webkit-text-stroke:1.6px #FBF4E8}
+.photobanner .pcredit{position:absolute;right:14px;bottom:10px;font:500 10.5px Inter,sans-serif;color:rgba(251,244,232,.72);text-decoration:none;max-width:60%;text-align:right;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.photobanner .pcredit:hover{color:#fff;text-decoration:underline}
+.act{background:none}
+@media (max-width:760px){.sec .head.photobanner{padding:110px 18px 26px;min-height:280px}.acthead.photobanner{min-height:58vh;padding:100px 18px 40px}.photobanner .pcredit{left:14px;right:14px;max-width:none;text-align:left}}
+/* photo cards on map points */
+.photocard{position:absolute;top:12px;right:12px;z-index:5;width:min(320px,calc(100% - 24px));margin:0;border-radius:14px;overflow:hidden;background:#FBF7EF;box-shadow:0 18px 40px -14px rgba(31,23,18,.55);border:1px solid var(--line2);animation:pcin .25s ease}
+.photocard[hidden]{display:none}
+@keyframes pcin{from{opacity:0;transform:translateY(6px)}}
+.photocard img{display:block;width:100%;height:190px;object-fit:cover;background:#E8DBC2}
+.photocard figcaption{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px}
+.photocard b{font:700 15px var(--display)}
+.photocard a{font:500 10.5px Inter,sans-serif;color:var(--mut);text-decoration:none}.photocard a:hover{text-decoration:underline}
+.photocard .x{position:absolute;top:8px;right:8px;width:30px;height:30px;border:0;border-radius:50%;background:rgba(21,16,12,.65);color:#fff;font-size:17px;cursor:pointer;display:none}
+.photocard.pin .x{display:block}
 </style>
 </head>
 <body>
 <div id="prog"></div>
-<nav id="rail" aria-label="Parts of the presentation"><span class="rp"><i id="railBar"></i></span>
-  <a href="#act1" data-r="act1"><b>I</b><span>The Headline</span></a>
-  <a href="#act2" data-r="act2"><b>II</b><span>Marshall’s Lens</span></a>
-  <a href="#act3" data-r="act3"><b>III</b><span>Identity</span></a>
-  <a href="#act4" data-r="act4"><b>IV</b><span>Back to the Headline</span></a>
-  <a href="#questions" data-r="questions"><b>?</b><span>Questions</span></a>
-  <a href="#bibliography" data-r="bibliography"><b>§</b><span>Sources</span></a>
+<nav id="rail" aria-label="Contents">
+  <button class="rt" id="railToggle" type="button" aria-expanded="false" aria-controls="railPanel" title="Contents"><span></span><span></span></button>
+  <div class="rlist">
+    <a href="#hero" data-r="hero" title="Opening"><b>00</b></a>
+    <a href="#act1" data-r="act1" title="The Headline"><b>I</b></a>
+    <a href="#act2" data-r="act2" title="Marshall’s Lens"><b>II</b></a>
+    <a href="#act3" data-r="act3" title="Identity"><b>III</b></a>
+    <a href="#act4" data-r="act4" title="Back to the Headline"><b>IV</b></a>
+    <a href="#questions" data-r="questions" title="Questions"><b>?</b></a>
+    <a href="#bibliography" data-r="bibliography" title="Sources"><b>§</b></a>
+  </div>
+  <button class="rp" id="railPresent" type="button" title="Presentation mode" aria-label="Presentation mode"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg></button>
+  <span class="rbar" aria-hidden="true"><i id="railBar"></i></span>
 </nav>
+<div id="railPanel" role="dialog" aria-label="Contents" hidden>
+  <div class="rph"><span>Contents</span><button type="button" id="railClose" aria-label="Close contents">×</button></div>
+  <ol>
+    <li><a href="#hero" data-s="hero"><b>00</b><span>Opening<em>The research question</em></span></a></li>
+    <li><a href="#act1" data-s="act1"><b>I</b><span>The Headline<em>Greenland, 22 Sep 2026</em></span></a></li>
+    <li><a href="#act2" data-s="act2"><b>II</b><span>Marshall’s Lens<em>Theory and the five steps</em></span></a>
+      <a class="sub" href="#land" data-s="land">The Land</a><a class="sub" href="#power" data-s="power">The Geography of Power</a></li>
+    <li><a href="#act3" data-s="act3"><b>III</b><span>Identity<em>Human geography</em></span></a>
+      <a class="sub" href="#people" data-s="people">The American People</a><a class="sub" href="#txca" data-s="txca">Two Americas</a><a class="sub" href="#culture" data-s="culture">Through Culture</a></li>
+    <li><a href="#act4" data-s="act4"><b>IV</b><span>Back to the Headline<em>Conclusion</em></span></a>
+      <a class="sub" href="#world" data-s="world">The Headline in its World</a><a class="sub" href="#critique" data-s="critique">Geography did not sign the deal</a><a class="sub" href="#future" data-s="future">The Future and the Answer</a></li>
+    <li><a href="#questions" data-s="questions"><b>?</b><span>Questions<em>Three answers and the QR</em></span></a></li>
+    <li><a href="#bibliography" data-s="bibliography"><b>§</b><span>Sources<em>Bibliography S1–S83</em></span></a></li>
+  </ol>
+</div>
+<div id="railShade" hidden></div>
 <div class="strip"><span><b>An atlas</b> of land, people and power</span><span>UFV · International Business &amp; International Relations · Nov 2026</span></div>
 
 <header class="nav">
@@ -871,7 +942,7 @@ function greenland(){
     labels([[45,-100,'UNITED STATES','middle center'],[62,80,'RUSSIA','middle center'],[63,-100,'CANADA','middle center'],[78,-40,'GREENLAND','top center'],[64.5,-19,'GIUK GAP','middle right']],'#5A4838',11)
   ];
   var g=geo({projection:{type:'orthographic',rotation:{lon:-45,lat:68,roll:0}},lonaxis:grid(),lataxis:grid()});
-  draw('m-green',data,lay(g,{dragmode:'pan'}));
+  draw('m-green',data,lay(g,{dragmode:'pan'}));photoHook('m-green');
   var k=0;setInterval(function(){if(!vis.act1||reduce)return;k=(k+1)%140;var p=route[k];Plotly.restyle('m-green',{lon:[[p[1]]],lat:[[p[0]]]},[2])},90);
 }
 
@@ -1118,13 +1189,70 @@ function worldInit(){
   $('#pFlat').addEventListener('click',function(){proj='flat';$('#pFlat').setAttribute('aria-pressed','true');$('#pGlobe').setAttribute('aria-pressed','false');renderWorld()});
   $('#pGlobe').addEventListener('click',function(){proj='globe';$('#pGlobe').setAttribute('aria-pressed','true');$('#pFlat').setAttribute('aria-pressed','false');wCur=RELS[ri].view.slice();renderWorld(wCur)});
 }
-function worldMap(){Plotly.react('m-world',worldTraces(),worldLayout(wCur),CFG)}
+function worldMap(){Plotly.react('m-world',worldTraces(),worldLayout(wCur),CFG).then(function(){photoHook('m-world')})}
 
 /* ================= IV.3 FUTURE ================= */
 var SCN=[['Fortress America','Relies on geography: hemispheric control (Greenland, Panama), energy dominance, fewer alliances.','Tariffs on allies · troop withdrawals'],['Renewed leadership','Geography plus alliances to balance China; Europe and Asia share the burden.','NATO 5% met · USMCA renewed'],['Contested decline','Division, debt and climate stress erode capacity; China gains in Asia.','Taiwan crisis · fiscal crisis']];
 var si=0;
 function renderScn(){$$('#scn button').forEach(function(b,i){b.setAttribute('aria-pressed',String(i===si))})}
 function futureInit(){SCN.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.className='scn';b.innerHTML='<b>'+s[0]+'</b><span>'+s[1]+'</span><em>SIGNPOSTS · '+s[2].toUpperCase()+'</em>';b.addEventListener('click',function(){si=i;renderScn()});$('#scn').appendChild(b)});renderScn()}
+
+
+/* ================= PHOTOS (Wikimedia Commons, free licences, credited) ================= */
+var PH={
+ pituffik:['Thule Air Base aerial view.jpg','Pituffik Space Base (formerly Thule), north-west Greenland','TSgt Lee E. Schading, U.S. Air Force','Public domain'],
+ narsarsuaq:['Narsarsuaq Airport Overview looking SW.jpg','Narsarsuaq airport, southern Greenland','Mestersvig (Wikimedia user)','CC BY-SA 4.0'],
+ mestersvig:['Mestersvig airport.jpg','Mestersvig airstrip, north-east Greenland','Berland at English Wikipedia','CC BY-SA 3.0'],
+ nuuk:['Nuuk (Panorama) (2) (Kenny McFly).jpg','Nuuk, capital of Greenland','Kenny McFly','CC BY-SA 3.0'],
+ ottawa:['Centre Block - Parliament Hill.jpg','Parliament Hill, Ottawa','Saffron Blaze','CC BY-SA 3.0'],
+ mexico:['Plaza de la Constitución - Zócalo de la Ciudad de México - 1.jpg','The Zócalo, Mexico City','ProtoplasmaKid','CC BY-SA 4.0'],
+ beijing:['Tian An Men Square 天安门广场 (196532677).jpeg','Tiananmen Square, Beijing','Zhiguo Shi','CC BY 3.0'],
+ brussels:['New HQ NATO 1.jpg','NATO headquarters, Brussels','Swadim','CC BY-SA 4.0'],
+ guam:['Apra Harbor, Guam.jpg','Apra Harbor and U.S. Naval Base Guam','MC1 Jeffrey Jay Price, U.S. Navy','Public domain'],
+ bahrain:['US Navy ships at Naval Support Activity Bahrain in 1993.JPEG','Naval Support Activity Bahrain, home of the 5th Fleet','OS2 John Bouvia, U.S. Navy','Public domain'],
+ hormuz:['ISS047-E-139569 - View of Earth - Strait of Hormuz - Musandam Peninsula - Qeschm - Hara Mangrove tidal structures in Khuran Strait - Persian Gulf - Zagros Mountains (cropped).jpg','Strait of Hormuz from the International Space Station','NASA Johnson Space Center','Public domain'],
+ malacca:['Ships in the Malacca Strait.jpg','Shipping in the Strait of Malacca','ZoschH','CC BY-SA 4.0'],
+ panama:['Container Ship Enters Miraflores Locks - Panama Canal.jpg','Miraflores Locks, Panama Canal','Adam Jones','CC BY-SA 2.0'],
+ bering:['Diomede Islands, Bering Strait (ASTER).jpg','The Diomede Islands in the Bering Strait: Russia left, US right','NASA/METI/AIST/Japan Space Systems, ASTER Science Team','Public domain'],
+ florida:['AS07-06-1733 - Apollo 7 - Apollo 7 Mission, United States, Miami, Florida Keys, Florida Straits - NARA - 16666106.jpg','The Florida Keys and the Florida Straits from Apollo 7 (1968)','NASA','Public domain']
+};
+var PHPTS=[[76.53,-68.70,'pituffik'],[61.16,-45.43,'narsarsuaq'],[72.24,-23.92,'mestersvig'],[64.18,-51.69,'nuuk'],[45.42,-75.70,'ottawa'],[19.43,-99.13,'mexico'],[39.9,116.4,'beijing'],[50.85,4.35,'brussels'],[13.44,144.79,'guam'],[26.22,50.58,'bahrain'],[26.57,56.25,'hormuz'],[2.0,102.0,'malacca'],[9.08,-79.68,'panama'],[65.8,-168.9,'bering'],[24.5,-80.5,'florida']];
+function cimg(f,w){return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(f.replace(/ /g,'_'))+'?width='+(w||1280)}
+function cpage(f){return 'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(f.replace(/ /g,'_'))}
+function photoHook(id){var el=document.getElementById(id);if(!el||el.dataset.ph)return;if(!el.on){setTimeout(function(){photoHook(id)},300);return}el.dataset.ph=1;var box=el.parentNode,card=document.createElement('figure');card.className='photocard';card.hidden=true;box.appendChild(card);var pinned=null;
+  function find(p){var best=null,bd=1.2;PHPTS.forEach(function(q){var d=Math.abs(q[0]-p.lat)+Math.abs(q[1]-p.lon);if(d<bd){bd=d;best=q[2]}});return best}
+  function show(k,pin){var x=PH[k];if(!x)return;card.innerHTML='<button type="button" class="x" aria-label="Close photo">×</button><img src="'+cimg(x[0],900)+'" alt="'+x[1]+'" loading="lazy"><figcaption><b>'+x[1]+'</b><a href="'+cpage(x[0])+'" target="_blank" rel="noopener">Photo: '+x[2]+' · '+x[3]+' · Wikimedia Commons ↗</a></figcaption>';card.hidden=false;card.classList.toggle('pin',!!pin);
+    card.querySelector('.x').addEventListener('click',function(){pinned=null;card.hidden=true})}
+  el.on('plotly_hover',function(ev){var p=ev.points&&ev.points[0];if(!p||p.lat==null)return;var k=find(p);if(k&&!pinned)show(k,false)});
+  el.on('plotly_unhover',function(){if(!pinned)card.hidden=true});
+  el.on('plotly_click',function(ev){var p=ev.points&&ev.points[0];if(!p||p.lat==null)return;var k=find(p);if(k){pinned=k;show(k,true)}});
+}
+/* section background photos */
+var SBG={
+ act1:['Iceberg in North Star Bay, Greenland.jpg','Iceberg in North Star Bay, by Pituffik','Jeremy Harbeck, NASA','Public domain','50% 60%'],
+ act2:['Blue Marble Western Hemisphere.jpg','The Western Hemisphere: two oceans and one continent','NASA, Reto Stöckli','Public domain','50% 35%'],
+ land:['Grand Canyon Inversion 2013 - Mather Point - Flickr - Grand Canyon NPS.jpg','The Grand Canyon from Mather Point','Grand Canyon National Park (NPS)','Public domain','50% 50%'],
+ power:['Mississippi River Commission gains fresh perspective of Tennessee, Cumberland Rivers 150807-A-EO110-013.jpg','Barge traffic on the inland waterways','Leon Roberts, U.S. Army Corps of Engineers','Public domain','50% 55%'],
+ act3:['NaturalizationCeremony2016 0934 (28608541734).jpg','A naturalisation ceremony at the Grand Canyon','Grand Canyon National Park (NPS)','CC BY 2.0','50% 40%'],
+ people:['Times Square, New York City, 20231003 1232 1916.jpg','Times Square, New York','Jakub Hałun','CC BY 4.0','50% 45%'],
+ txca:['Santa Elena Canyon (Left Side is United States, Right Side is Mexico), Big Bend National Park, Texas.jpg','Santa Elena Canyon: the US on the left, Mexico on the right','Ken Lund','CC BY-SA 2.0','50% 55%'],
+ culture:['Route 66 - Arizona - panoramio.jpg','Route 66 in Arizona','Pavel Špindler','CC BY 3.0','50% 60%'],
+ act4:['Thule Air Base- Space Superiority from the Top of the World (220807-X-BV344-1002).jpg','Pituffik Space Base, Greenland','Paul Honnick, U.S. Space Force','Public domain','50% 50%'],
+ world:['Aerial photograph of the Port of Miami Container Port.jpg','The container port of Miami','James R. Tourtellotte, U.S. CBP','Public domain','50% 50%'],
+ critique:['Christiansborg Slot Copenhagen 2014 01.jpg','Christiansborg, seat of the Danish parliament','Julian Herzog','CC BY 4.0','50% 55%'],
+ future:['Black Marble Americas.jpg','The Americas at night','NASA Earth Observatory','Public domain','50% 30%'],
+ questions:['Statue of Liberty frontal 2 crop.JPG','The Statue of Liberty','Daniel Schwen','Public domain','50% 18%'],
+ bibliography:['LOC Main Reading Room Highsmith.jpg','Main Reading Room, Library of Congress','Carol M. Highsmith','Public domain','50% 45%']
+};
+(function(){Object.keys(SBG).forEach(function(id){var s=document.getElementById(id);if(!s)return;var b=SBG[id],host;
+  if(s.classList.contains('act')){var w=s.querySelector('.wrap');host=document.createElement('div');host.className='acthead';
+    Array.prototype.slice.call(w.children).forEach(function(c){if(c.matches('.num,.eyebrow,h2,.lead'))host.appendChild(c)});w.insertBefore(host,w.firstChild)}
+  else host=s.querySelector('.head');if(!host)return;
+  host.classList.add('photobanner');host.dataset.bg=cimg(b[0],1920);host.style.setProperty('--bgpos',b[4]);
+  var c=document.createElement('a');c.className='pcredit';c.href=cpage(b[0]);c.target='_blank';c.rel='noopener';c.textContent='Photo: '+b[1]+' · '+b[2]+' · '+b[3];host.appendChild(c)});
+  var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.style.setProperty('--bg','url("'+e.target.dataset.bg+'")');e.target.classList.add('bgon');io2.unobserve(e.target)}})},{rootMargin:'600px 0px'});
+  $$('.photobanner').forEach(function(h){io2.observe(h)});
+})();
 
 /* ================= PRESENTATION MODE ================= */
 var secs=$$('section[data-sec]').filter(function(s){return s.id!=='bibliography'}),pres=false,t0=0,tick=null;
@@ -1157,18 +1285,24 @@ document.addEventListener('keydown',function(e){
   else if(e.key==='n'||e.key==='N'){document.body.classList.toggle('shownotes')}
   else if(e.key==='Escape'){present(false)}
 });
-var navA=$$('.links a').concat($$('#rail a')),acts=['act1','act2','act3','act4','questions','bibliography'];
-var actOf={hero:null,act1:'act1',act2:'act2',land:'act2',power:'act2',act3:'act3',people:'act3',txca:'act3',culture:'act3',act4:'act4',world:'act4',critique:'act4',future:'act4',questions:'questions',bibliography:'bibliography'};
+var navA=$$('.links a').concat($$('#rail .rlist a')),acts=['act1','act2','act3','act4','questions','bibliography'];
+var actOf={hero:'hero',act1:'act1',act2:'act2',land:'act2',power:'act2',act3:'act3',people:'act3',txca:'act3',culture:'act3',act4:'act4',world:'act4',critique:'act4',future:'act4',questions:'questions',bibliography:'bibliography'};
 function onScroll(){
   var h=document.documentElement.scrollHeight-window.innerHeight;$('#prog').style.width=(h>0?window.scrollY/h*100:0)+'%';
   var y=window.scrollY+120,cur=null;$$('section[id]').forEach(function(s){if(s.offsetTop<=y)cur=actOf[s.id]});
   navA.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)});
+  var curS=null;$$('section[id]').forEach(function(s){if(s.offsetTop<=y)curS=s.id});$$('#railPanel a').forEach(function(a){a.classList.toggle('on',a.dataset.s===curS||(!a.classList.contains('sub')&&a.dataset.s===cur))});
   var rb=$('#railBar');if(rb)rb.style.height=(h>0?window.scrollY/h*100:0)+'%';
 }
-/* rail items follow the inward curve of the rail */
-function railCurve(){var r=$('#rail');if(!r||innerWidth<=1000){$$('#rail a').forEach(function(a){a.style.removeProperty('--dx')});return}
-  var H=r.clientHeight,R=520,c=498;$$('#rail a').forEach(function(a){var dy=a.offsetTop+a.offsetHeight/2-H/2,cut=c-Math.sqrt(Math.max(0,R*R-dy*dy));a.style.setProperty('--dx',Math.round(Math.min(0,cut))+'px')})}
-window.addEventListener('resize',railCurve);setTimeout(railCurve,0);
+/* contents rail: opens on click, closes on Escape, outside click or after choosing */
+(function(){var tg=$('#railToggle'),pn=$('#railPanel'),sh=$('#railShade');
+  function setOpen(on){tg.setAttribute('aria-expanded',on);if(on){pn.hidden=false;sh.hidden=false;requestAnimationFrame(function(){pn.classList.add('on')})}else{pn.classList.remove('on');sh.hidden=true;setTimeout(function(){if(!pn.classList.contains('on'))pn.hidden=true},280)}}
+  tg.addEventListener('click',function(){setOpen(tg.getAttribute('aria-expanded')!=='true')});
+  $('#railClose').addEventListener('click',function(){setOpen(false)});sh.addEventListener('click',function(){setOpen(false)});
+  pn.addEventListener('click',function(e){if(e.target.closest('a'))setOpen(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!pn.hidden)setOpen(false)});
+  $('#railPresent').addEventListener('click',function(){$('#btnPresent').click()});
+})();
 /* scroll reveal: sections enter softly */
 (function(){if(reduce||!('IntersectionObserver' in window))return;
   var els=$$('main .head, main .card, main .panel, main .mapbox, main .tile, main .oq > div, main .step, main .dd, main .qa .row2, main .answer, main article.col, main .note-a');
