@@ -1457,5 +1457,21 @@
 "by": "AskALotl",
 "lic": "CC0",
 "alias": []
+},
+"map-mackinder": {
+"src": "assets/photos/map-mackinder.png",
+"file": "Heartland.png",
+"cap": "Mackinder's map for “The Geographical Pivot of History”, Geographical Journal, April 1904",
+"by": "Halford J. Mackinder",
+"lic": "Public domain",
+"alias": []
+},
+"map-spykman": {
+"src": "assets/photos/map-spykman.jpg",
+"file": "Spykman's Rimland-map.jpg",
+"cap": "Map of the Heartland and Rimland concepts, scanned from a 1942 book (Spykman, America's Strategy in World Politics)",
+"by": "various (scanned from a book)",
+"lic": "CC BY-SA 4.0",
+"alias": []
 }
 }
