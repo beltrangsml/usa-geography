@@ -1377,5 +1377,21 @@
 "by": "Quintin Soloviev",
 "lic": "CC BY 4.0",
 "alias": []
+},
+"signing-1": {
+"src": "assets/photos/signing-1.jpg",
+"file": "https://www.whitehouse.gov/releases/2026/09/president-trump-inks-historic-arctic-security-agreement/",
+"cap": "Trilateral signing of the Arctic security agreement, UN Headquarters, New York, 22 Sep 2026",
+"by": "Official White House Photo by Daniel Torok",
+"lic": "Public domain (US Government work)",
+"alias": []
+},
+"signing-2": {
+"src": "assets/photos/signing-2.jpg",
+"file": "https://www.whitehouse.gov/releases/2026/09/president-trump-inks-historic-arctic-security-agreement/",
+"cap": "Trump, Frederiksen and Nielsen after the signing, New York, 22 Sep 2026",
+"by": "Official White House Photo by Daniel Torok",
+"lic": "Public domain (US Government work)",
+"alias": []
 }
 }
