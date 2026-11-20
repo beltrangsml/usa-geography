@@ -1393,5 +1393,69 @@
 "by": "Official White House Photo by Daniel Torok",
 "lic": "Public domain (US Government work)",
 "alias": []
+},
+"ppl-ideas": {
+"src": "assets/photos/ppl-ideas.jpg",
+"file": "Independence_Hall.jpg",
+"cap": "Independence Hall, Philadelphia, where the Declaration and the Constitution were debated",
+"by": "Rdsmith4",
+"lic": "CC BY-SA 2.5",
+"alias": []
+},
+"ppl-frontier": {
+"src": "assets/photos/ppl-frontier.jpg",
+"file": "Palmer-Epard_Cabin_interior.jpg",
+"cap": "Homestead National Historical Park, Nebraska: the first Homestead Act claim, 1862",
+"by": "Jeff the quiet",
+"lic": "CC0",
+"alias": []
+},
+"ppl-dream": {
+"src": "assets/photos/ppl-dream.jpg",
+"file": "Aerial_view_of_Ellis_Island,_Jersey_City,_New_Jersey_LCCN2011635626_-_cropped_balance.jpg",
+"cap": "Ellis Island, the gateway for millions of immigrants",
+"by": "Carol M. Highsmith",
+"lic": "CC BY-SA 4.0",
+"alias": []
+},
+"ppl-faith": {
+"src": "assets/photos/ppl-faith.jpg",
+"file": "WashNatCathedralx1.jpg",
+"cap": "Washington National Cathedral",
+"by": "Duane Lempke",
+"lic": "CC0",
+"alias": []
+},
+"ppl-life": {
+"src": "assets/photos/ppl-life.png",
+"file": "Nassau_County_New_York_incorporated_and_unincorporated_areas_Levittown_highlighted.svg",
+"cap": "Suburban America: cheap land and the car shaped everyday life",
+"by": "Rcsprinter123",
+"lic": "CC BY 3.0",
+"alias": []
+},
+"ppl-politics": {
+"src": "assets/photos/ppl-politics.jpg",
+"file": "US_Capitol_east_side.JPG",
+"cap": "The United States Capitol, seat of Congress",
+"by": "Martin Falbisoner",
+"lic": "CC BY-SA 3.0",
+"alias": []
+},
+"ppl-memory": {
+"src": "assets/photos/ppl-memory.jpg",
+"file": "15-23-0291,_artillery_on_seminary_ridge_-_panoramio.jpg",
+"cap": "Gettysburg National Military Park, Pennsylvania: the Civil War remembered",
+"by": "David Dugan",
+"lic": "CC BY-SA 3.0",
+"alias": []
+},
+"ppl-world": {
+"src": "assets/photos/ppl-world.jpg",
+"file": "Front_view_of_Statue_of_Liberty_(cropped).jpg",
+"cap": "The Statue of Liberty, a gift from France that welcomed the world",
+"by": "AskALotl",
+"lic": "CC0",
+"alias": []
 }
 }
