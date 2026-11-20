@@ -1234,5 +1234,78 @@
 "titles": [
 "Headquarters of the United Nations"
 ]
+},
+{
+"k": "signing",
+"cap": "Signing of the US–Denmark–Greenland security agreement, UN Headquarters, 22 Sep 2026",
+"url": "https://www.whitehouse.gov/wp-content/uploads/2026/09/P20260922DT-2103.jpg",
+"page": "https://www.whitehouse.gov/releases/2026/09/president-trump-inks-historic-arctic-security-agreement/",
+"by": "Official White House Photo by Daniel Torok",
+"lic": "Public domain (US Government work)"
+},
+{
+"k": "ppl-ideas",
+"cap": "Independence Hall, Philadelphia, where the Declaration and the Constitution were debated",
+"titles": [
+"Independence Hall"
+],
+"alias": []
+},
+{
+"k": "ppl-frontier",
+"cap": "Homestead National Historical Park, Nebraska: the first Homestead Act claim, 1862",
+"titles": [
+"Homestead National Historical Park"
+],
+"alias": []
+},
+{
+"k": "ppl-dream",
+"cap": "Ellis Island, the gateway for millions of immigrants",
+"titles": [
+"Ellis Island"
+],
+"alias": []
+},
+{
+"k": "ppl-faith",
+"cap": "Washington National Cathedral",
+"titles": [
+"Washington National Cathedral"
+],
+"alias": []
+},
+{
+"k": "ppl-life",
+"cap": "Suburban America: cheap land and the car shaped everyday life",
+"titles": [
+"Levittown, New York",
+"Levittown, Pennsylvania"
+],
+"alias": []
+},
+{
+"k": "ppl-politics",
+"cap": "The United States Capitol, seat of Congress",
+"titles": [
+"United States Capitol"
+],
+"alias": []
+},
+{
+"k": "ppl-memory",
+"cap": "Gettysburg National Military Park, Pennsylvania: the Civil War remembered",
+"titles": [
+"Gettysburg National Military Park"
+],
+"alias": []
+},
+{
+"k": "ppl-world",
+"cap": "The Statue of Liberty, a gift from France that welcomed the world",
+"titles": [
+"Statue of Liberty"
+],
+"alias": []
 }
-,{"k":"signing","cap":"Signing of the US–Denmark–Greenland security agreement, UN Headquarters, 22 Sep 2026","url":"https://www.whitehouse.gov/wp-content/uploads/2026/09/P20260922DT-2103.jpg","page":"https://www.whitehouse.gov/releases/2026/09/president-trump-inks-historic-arctic-security-agreement/","by":"Official White House Photo by Daniel Torok","lic":"Public domain (US Government work)"}]
+]
